@@ -116,7 +116,7 @@
             </div>
             <div class="hs-item">
               <div class="hs-icon" [class]="historySummary.latest >= 50 ? '⚠️' : '✅'">{{ historySummary.latest >= 50 ? '⚠️' : '✅' }}</div>
-              <div class="hs-val" [style.color]="historySummary.latest >= 50 ? '#C10508' : '#05C134'">{{ historySummary.latest }}%</div>
+              <div class="hs-val" [style.color]="getRiskColor(historySummary.latest)">{{ getRiskLevel(historySummary.latest) }}</div>
               <div class="hs-label">ล่าสุด</div>
             </div>
             <div class="hs-item">
@@ -135,8 +135,8 @@
                   <div class="hc-time" *ngIf="h.time">🕐 {{ h.time }}</div>
                 </div>
                 <div class="hc-score-wrap">
-                  <div class="hc-score" [style.color]="h.riskPercent >= 50 ? '#C10508' : h.riskPercent >= 35 ? '#F59E0B' : '#05C134'">{{ h.riskPercent }}%</div>
-                  <div class="hc-level" [style.background]="h.riskPercent >= 50 ? 'rgba(193,5,8,0.1)' : h.riskPercent >= 35 ? 'rgba(245,158,11,0.1)' : 'rgba(5,193,52,0.1)'" [style.color]="h.riskPercent >= 50 ? '#C10508' : h.riskPercent >= 35 ? '#F59E0B' : '#05C134'">{{ h.level }}</div>
+                  <div class="hc-score" [style.color]="getRiskColor(h.riskPercent)">{{ getRiskLevel(h.riskPercent) }}</div>
+                  <div class="hc-level" [style.background]="'rgba(' + getRiskColor(h.riskPercent).substring(1) + ', 0.1)'" [style.color]="getRiskColor(h.riskPercent)">{{ h.riskPercent }}%</div>
                 </div>
               </div>
               <div class="hc-divider"></div>
@@ -146,7 +146,7 @@
                   <div class="hc-test-bar-bg">
                     <div class="hc-test-bar" [style.width.%]="Math.round((h.scores[test.id] || 0) * 100)" [style.background]="(h.scores[test.id] || 0) > 0.6 ? '#C10508' : (h.scores[test.id] || 0) > 0.35 ? '#F59E0B' : '#05C134'"></div>
                   </div>
-                  <span class="hc-test-score" [style.color]="(h.scores[test.id] || 0) > 0.6 ? '#C10508' : (h.scores[test.id] || 0) > 0.35 ? '#F59E0B' : '#05C134'">{{ h.scores[test.id] !== undefined ? Math.round((h.scores[test.id] || 0) * 100) + '%' : '-' }}</span>
+                  <span class="hc-test-score" [style.color]="(h.scores[test.id] || 0) > 0.6 ? '#C10508' : (h.scores[test.id] || 0) > 0.35 ? '#F59E0B' : '#05C134'">{{ h.scores[test.id] !== undefined ? getRiskLevel(Math.round((h.scores[test.id] || 0) * 100)) : '-' }}</span>
                 </div>
               </div>
             </div>
@@ -169,7 +169,7 @@
               <div class="result-label">%</div>
             </div>
           </div>
-          <div class="result-title" [style.color]="resultColor">{{ resultLabel }}</div>
+          <div class="result-title" [style.color]="resultColor">{{ resultRiskLevel }}</div>
           <div class="result-subtitle">ความเสี่ยงโรคพาร์กินสันโดยรวม</div>
         </div>
 
@@ -181,7 +181,7 @@
               <div class="breakdown-name">{{ s.name }}</div>
               <div class="risk-bar-track" style="margin-top:6px"><div class="risk-bar-fill" [style.width.%]="s.score" [style.background]="s.color"></div></div>
             </div>
-            <div class="breakdown-score" [style.color]="s.color">{{ s.score }}%</div>
+            <div class="breakdown-score" [style.color]="s.color">{{ getRiskLevel(s.score) }}</div>
           </div>
         </div>
 

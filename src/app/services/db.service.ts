@@ -70,7 +70,9 @@ export class DbService {
   addHistory(uid: string, rec: any): void {
     try {
       const h = this.getHistory(uid);
-      h.unshift({ ...rec, id: Date.now(), date: new Date().toISOString() });
+      const now = new Date();
+      const dateStr = now.toLocaleDateString('th-TH') + ' ' + now.toLocaleTimeString('th-TH');
+      h.unshift({ ...rec, id: Date.now(), date: dateStr });
       this.set('hist_' + uid, h.slice(0, 50));
     } catch (err: any) {
       console.error(`[DbService] Failed to add history for uid="${uid}":`, err);

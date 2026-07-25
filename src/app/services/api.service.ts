@@ -26,6 +26,22 @@ export interface PredictResult {
   confidence: number;
 }
 
+export type RiskLevel = 'ปกติ' | 'เสี่ยงน้อย' | 'เสี่ยงปานกลาง' | 'เสี่ยงมาก';
+
+export function getRiskLevel(percent: number): RiskLevel {
+  if (percent < 30) return 'ปกติ';
+  if (percent < 50) return 'เสี่ยงน้อย';
+  if (percent < 70) return 'เสี่ยงปานกลาง';
+  return 'เสี่ยงมาก';
+}
+
+export function getRiskColor(percent: number): string {
+  if (percent < 30) return '#05C134'; // Green
+  if (percent < 50) return '#F59E0B'; // Amber
+  if (percent < 70) return '#FF6B35'; // Orange
+  return '#C10508'; // Red
+}
+
 @Injectable({
   providedIn: 'root'
 })

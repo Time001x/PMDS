@@ -5,7 +5,7 @@ import { Subject, of, EMPTY } from 'rxjs';
 import { concatMap, catchError, takeUntil } from 'rxjs/operators';
 import { DbService } from '../../services/db.service';
 import { TestConfigService } from '../../services/test-config.service';
-import { ApiService } from '../../services/api.service';
+import { ApiService, getRiskLevel, getRiskColor } from '../../services/api.service';
 import { SpeechTestComponent } from './components/speech-test/speech-test.component';
 import { TremorTestComponent } from './components/tremor-test/tremor-test.component';
 import { FingerTapTestComponent } from './components/finger-tap-test/finger-tap-test.component';
@@ -40,6 +40,7 @@ export class TestPage implements OnInit, OnDestroy {
   historySummary: any = { count: 0, latest: 0, avg: 0 };
 
   resultRingPercent = 0;
+  resultRiskLevel = 'ปกติ';
   resultColor = '#888';
   resultLabel = '';
   resultScores: any[] = [];
@@ -57,6 +58,9 @@ export class TestPage implements OnInit, OnDestroy {
 
   private saveScore$ = new Subject<{ testId: string; score: number }>();
   private destroy$ = new Subject<void>();
+
+  getRiskLevel = getRiskLevel;
+  getRiskColor = getRiskColor;
 
   constructor(
     private db: DbService,
@@ -140,22 +144,22 @@ export class TestPage implements OnInit, OnDestroy {
 
       // ใช้ผลจาก AI แทนการคำนวณเอง
       const totalRisk = result.riskPercent;
-      const ri = {
-        color: result.color,
-        label: result.label
-      };
+      const riskLevel = getRiskLevel(totalRisk);
+      const riskColor = getRiskColor(totalRisk);
 
       const record = {
         riskPercent: totalRisk,
+        riskLevel: riskLevel,
         scores: { ...sessionScores },
-        level: ri.label
+        level: riskLevel
       };
       this.db.addHistory(this.currentUser.uid, record);
       this.db.clearSessionScores(this.currentUser.uid);
 
       this.resultRingPercent = totalRisk;
-      this.resultColor = ri.color;
-      this.resultLabel = ri.label;
+      this.resultRiskLevel = riskLevel;
+      this.resultColor = riskColor;
+      this.resultLabel = riskLevel;
 
       const tests = this.testConfig.getTestList();
       this.resultScores = tests.map(t => ({
@@ -168,7 +172,7 @@ export class TestPage implements OnInit, OnDestroy {
             : 'var(--accent-good)'
       }));
 
-      this.showToast(`🤖 AI วิเคราะห์เสร็จ: ${result.label} (${result.confidence * 100 | 0}% confidence)`, 'teal');
+      this.showToast(`🤖 AI วิเคราะห์เสร็จ: ${riskLevel} (${result.confidence * 100 | 0}% confidence)`, 'teal');
 
     } catch (err) {
       console.error('[PMDS] API error:', err);
@@ -186,15 +190,17 @@ export class TestPage implements OnInit, OnDestroy {
   showFinalResultFallback(sessionScores: { [testId: string]: number }) {
     const tests = this.testConfig.getTestList();
     const totalRisk = this.testConfig.calculateTotalRisk(sessionScores);
-    const ri = this.testConfig.getRiskInfo(totalRisk);
+    const riskLevel = getRiskLevel(totalRisk);
+    const riskColor = getRiskColor(totalRisk);
 
-    const record = { riskPercent: totalRisk, scores: { ...sessionScores }, level: ri.label };
+    const record = { riskPercent: totalRisk, riskLevel: riskLevel, scores: { ...sessionScores }, level: riskLevel };
     this.db.addHistory(this.currentUser.uid, record);
     this.db.clearSessionScores(this.currentUser.uid);
 
     this.resultRingPercent = totalRisk;
-    this.resultColor = ri.color;
-    this.resultLabel = ri.label;
+    this.resultRiskLevel = riskLevel;
+    this.resultColor = riskColor;
+    this.resultLabel = riskLevel;
     this.resultScores = tests.map(t => ({
       ...t,
       score: Math.round((sessionScores[t.id] || 0) * 100),
@@ -315,6 +321,8 @@ export class TestPage implements OnInit, OnDestroy {
 
   viewHistoryDetail(h: any) {
     const tests = this.getTestListForHistory();
+    const riskLevel = getRiskLevel(h.riskPercent);
+    const riskColor = getRiskColor(h.riskPercent);
     const scoresHtml = tests.map(t => {
       const sc = h.scores?.[t.id];
       const pct = sc !== undefined ? Math.round(sc * 100) : null;
@@ -331,9 +339,9 @@ export class TestPage implements OnInit, OnDestroy {
       <div class="hdetail-wrap">
         <h3 style="margin-bottom:4px">🔍 รายละเอียดผลการทดสอบ</h3>
         <p style="font-size:13px;color:#666;margin-bottom:16px">📅 ${h.date}</p>
-        <div class="hdetail-total" style="border-color:${h.riskPercent>=50?'#C10508':h.riskPercent>=35?'#F59E0B':'#05C134'}">
-          <div class="hdetail-total-val" style="color:${h.riskPercent>=50?'#C10508':h.riskPercent>=35?'#F59E0B':'#05C134'}">${h.riskPercent}%</div>
-          <div class="hdetail-total-label">${h.level}</div>
+        <div class="hdetail-total" style="border-color:${riskColor}">
+          <div class="hdetail-total-val" style="color:${riskColor}">${riskLevel}</div>
+          <div class="hdetail-total-label">${h.riskPercent}%</div>
         </div>
         <div class="hdetail-scores">${scoresHtml}</div>
         <button class="btn btn-primary btn-full mt-16" data-action="close-modal">ปิด</button>

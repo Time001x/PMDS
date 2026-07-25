@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DbService } from '../../services/db.service';
 import { TestConfigService } from '../../services/test-config.service';
+import { getRiskLevel, getRiskColor } from '../../services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -13,13 +14,16 @@ import { TestConfigService } from '../../services/test-config.service';
 })
 export class HomePage implements OnInit {
   currentUser: any = null;
-  riskPercent: number | string = '--';
-  riskColor = '#888';
   riskLevel = 'ยังไม่มีข้อมูล';
+  riskColor = '#888';
+  riskPercent: number | string = '--';
   totalTests = 0;
   lastResult: any = null;
   testBars: any[] = [];
   recentHistory: any[] = [];
+
+  getRiskLevel = getRiskLevel;
+  getRiskColor = getRiskColor;
 
   constructor(
     private db: DbService,
@@ -57,9 +61,9 @@ export class HomePage implements OnInit {
 
     if (this.lastResult) {
       this.riskPercent = this.lastResult.riskPercent;
-      const ri = this.testConfig.getRiskInfo(this.riskPercent);
-      this.riskColor = ri.color;
-      this.riskLevel = ri.label;
+      const riskValue = typeof this.riskPercent === 'number' ? this.riskPercent : 0;
+      this.riskLevel = getRiskLevel(riskValue);
+      this.riskColor = getRiskColor(riskValue);
     } else {
       this.riskPercent = '--';
       this.riskColor = '#888';
@@ -71,15 +75,16 @@ export class HomePage implements OnInit {
       const sc = this.lastResult?.scores?.[t.id];
       const pct = sc !== undefined ? Math.round(sc * 100) : 0;
       const color = pct > 60 ? '#C10508' : pct > 35 ? '#F59E0B' : '#05C134';
-      return { ...t, pct, color };
+      const riskLabel = getRiskLevel(pct);
+      return { ...t, pct, riskLabel, color };
     });
 
     this.recentHistory = hist.slice(0, 3).map((h: any) => {
-      const d = new Date(h.date);
       const isRisk = h.riskPercent >= 50;
       return {
-        date: d.toLocaleDateString('th-TH'),
+        date: h.date,
         riskPercent: h.riskPercent,
+        riskLevel: getRiskLevel(h.riskPercent),
         isRisk,
         badgeClass: isRisk ? 'badge-risk' : 'badge-normal',
         badgeText: isRisk ? 'เสี่ยง' : 'ปกติ'

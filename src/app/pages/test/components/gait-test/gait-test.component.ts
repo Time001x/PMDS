@@ -37,7 +37,7 @@ export class GaitTestComponent implements OnDestroy {
     }
   }
 
-  async startTest(): Promise<void> {
+   async startTest(): Promise<void> {
     if (this.testActive() || this.gaitDone()) return;
 
     this.gaitDone.set(false);

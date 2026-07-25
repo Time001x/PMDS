@@ -47,7 +47,10 @@ export class TremorTestComponent implements OnDestroy {
 
     this.tremorDone.set(false);
     this.tremorResults.set(null);
-    this.testActive.set(true);
+    
+    this.ngZone.run(() => {
+      this.testActive.set(true);
+    });
 
     // ── subscribe ผลลัพธ์ก่อนเริ่ม เพื่อไม่พลาด auto-stop ──────
     this.resultSub?.unsubscribe();
@@ -86,10 +89,12 @@ export class TremorTestComponent implements OnDestroy {
     try {
       await this.motionSensor.startTremorTest();
     } catch (err: any) {
-      this.tremorStatus.set('❌ ไม่สามารถเริ่มทดสอบได้: ' + (err.message || ''));
-      this.testActive.set(false);
-      this.stateSub?.unsubscribe();
-      this.resultSub?.unsubscribe();
+      this.ngZone.run(() => {
+        this.tremorStatus.set('❌ ไม่สามารถเริ่มทดสอบได้: ' + (err.message || ''));
+        this.testActive.set(false);
+        this.stateSub?.unsubscribe();
+        this.resultSub?.unsubscribe();
+      });
     }
   }
 

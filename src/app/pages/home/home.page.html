@@ -29,8 +29,7 @@
         <div class="risk-card-top">
           <div>
             <div class="risk-label">ความเสี่ยงล่าสุด</div>
-            <div class="risk-value" [style.color]="riskColor">{{ riskPercent }}{{ riskPercent !== '--' ? '%' : '' }}</div>
-            <div class="risk-level" [style.color]="riskColor">{{ riskLevel }}</div>
+            <div class="risk-value" [style.color]="riskColor" style="font-size:24px;font-weight:600">{{ riskLevel }}</div>
           </div>
           <div>
             <span class="badge" [class.badge-risk]="lastResult && getRiskValue() >= 50" [class.badge-normal]="lastResult && getRiskValue() < 50" [class.badge-teal]="!lastResult">
@@ -39,10 +38,10 @@
           </div>
         </div>
         <div class="risk-bars">
-          <div class="risk-bar-row" *ngFor="let t of testBars">
+          <div class="risk-bar-row" *ngFor="let t of testBars" style="margin-bottom:12px;gap:8px">
             <div class="risk-bar-label">{{ t.shortName }}</div>
             <div class="risk-bar-track"><div class="risk-bar-fill" [style.width.%]="lastResult ? t.pct : 0" [style.background]="t.color"></div></div>
-            <div class="font-mono small" [style.color]="t.color" style="width:32px;text-align:right">{{ lastResult ? t.pct : '--' }}</div>
+            <div class="font-mono small" [style.color]="t.color" style="width:80px;text-align:right;font-size:12px">{{ lastResult ? t.riskLabel : '--' }}</div>
           </div>
         </div>
       </div>
@@ -53,9 +52,9 @@
           <div class="history-icon">📋</div>
           <div class="history-info">
             <div class="history-date">{{ h.date }}</div>
-            <div class="history-score" [style.color]="h.isRisk ? '#C10508' : '#05C134'">{{ h.riskPercent }}%</div>
+            <div class="history-score" [style.color]="h.isRisk ? '#C10508' : '#05C134'">{{ h.riskLevel }}</div>
           </div>
-          <span class="badge" [class.badge-risk]="h.isRisk" [class.badge-normal]="!h.isRisk">{{ h.badgeText }}</span>
+          <span class="badge" [class.badge-risk]="h.isRisk" [class.badge-normal]="!h.isRisk" style="font-size:12px">{{ h.riskPercent }}%</span>
         </div>
         <div *ngIf="recentHistory.length === 0" class="text-center text-muted small" style="padding:24px 0;color:#888">
           ยังไม่มีประวัติการทดสอบ<br>เริ่มการทดสอบได้เลย 👆
