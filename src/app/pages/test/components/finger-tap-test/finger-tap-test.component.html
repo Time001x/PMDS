@@ -38,22 +38,18 @@
   </div>
   <div class="finger-instruction">ใช้นิ้ว<strong>ชี้</strong>และ<strong>กลาง</strong>กดสลับกันเร็วที่สุด!</div>
   <div class="finger-tap-area">
-    <!-- แก้บั๊ก: รองรับทั้ง touch, mouse, และ pointer events เพื่อให้ทำงานได้ทุกอุปกรณ์ -->
+    <!-- แก้บั๊ก: ใช้ touchstart เท่านั้น ไม่ใช้ click เพื่อป้องกัน double fire -->
     <div class="finger-circle finger-circle-1"
          [class.active]="fingerCircleActive() === 1"
          [class.flash]="fingerCircleActive() === 1"
-         (touchstart)="onFingerTap(1, $event)"
-         (mousedown)="onFingerTap(1, $event)"
-         (pointerdown)="onFingerTap(1, $event)">
+         (touchstart)="onFingerTap(1); $event.preventDefault(); $event.stopPropagation()">
       <div class="circle-label">1</div>
       <div class="circle-finger">{{ fingerPhase() === 2 ? 'กลาง' : 'ชี้' }}</div>
     </div>
     <div class="finger-circle finger-circle-2"
          [class.active]="fingerCircleActive() === 2"
          [class.flash]="fingerCircleActive() === 2"
-         (touchstart)="onFingerTap(2, $event)"
-         (mousedown)="onFingerTap(2, $event)"
-         (pointerdown)="onFingerTap(2, $event)">
+         (touchstart)="onFingerTap(2); $event.preventDefault(); $event.stopPropagation()">
       <div class="circle-label">2</div>
       <div class="circle-finger">{{ fingerPhase() === 2 ? 'ชี้' : 'กลาง' }}</div>
     </div>
