@@ -166,29 +166,28 @@ export class AudioCaptureService {
   analyzeSpeech(sample: SpeechSampleData, stage: 1 | 2 | 3): SpeechAnalysisResult {
     const { volumeSamples, pitchSamples, duration } = sample;
 
-    let consistency = 50;
-    if (volumeSamples.length > 0) {
-      const meanVol = volumeSamples.reduce((a, b) => a + b, 0) / volumeSamples.length;
-      const variance = volumeSamples.reduce((sum, v) => sum + (v - meanVol) ** 2, 0) / volumeSamples.length;
+    const activeVolumes = volumeSamples.filter(v => v >= 8);
+    const volumesToUse = activeVolumes.length > 3 ? activeVolumes : volumeSamples;
+
+    let consistency = 85;
+    if (volumesToUse.length > 0) {
+      const meanVol = volumesToUse.reduce((a, b) => a + b, 0) / volumesToUse.length;
+      const variance = volumesToUse.reduce((sum, v) => sum + (v - meanVol) ** 2, 0) / volumesToUse.length;
       const stdDev = Math.sqrt(variance);
-      consistency = Math.round(Math.max(0, 100 - stdDev * 3.33));
-      if (stage === 1) consistency = Math.round(consistency * 0.8 + 20);
-      else if (stage === 2) consistency = Math.round(consistency * 0.7 + 15);
-      else consistency = Math.round(consistency * 0.75 + 18);
+      // High precision penalty: stdDev <= 5 -> consistency = 95%, stdDev >= 12 -> consistency <= 50%
+      consistency = Math.round(Math.max(0, Math.min(100, 100 - (stdDev > 5.0 ? (stdDev - 5.0) * 6.5 : 0))));
     }
 
-    let pitchStability = 50;
+    let pitchStability = 85;
     if (pitchSamples.length > 0) {
-      const voicedPitches = pitchSamples.filter((p) => p > 60 && p < 500);
+      const voicedPitches = pitchSamples.filter((p) => p >= 70 && p <= 450);
       if (voicedPitches.length > 2) {
         const meanPitch = voicedPitches.reduce((a, b) => a + b, 0) / voicedPitches.length;
         const pitchVariance = voicedPitches.reduce((sum, p) => sum + (p - meanPitch) ** 2, 0) / voicedPitches.length;
         const pitchDev = Math.sqrt(pitchVariance);
-        const relativeDev = meanPitch > 0 ? (pitchDev / meanPitch) * 100 : 50;
-        pitchStability = Math.round(Math.max(0, 100 - relativeDev * 2));
-        if (stage === 1) pitchStability = Math.round(pitchStability * 0.85 + 10);
-        else if (stage === 2) pitchStability = Math.round(pitchStability * 0.65 + 15);
-        else pitchStability = Math.round(pitchStability * 0.7 + 12);
+        const relativeDev = meanPitch > 0 ? (pitchDev / meanPitch) * 100 : 20;
+        // High precision penalty: relativeDev <= 7% -> stability = 95%, relativeDev >= 16% -> stability <= 50%
+        pitchStability = Math.round(Math.max(0, Math.min(100, 100 - (relativeDev > 7.0 ? (relativeDev - 7.0) * 5.5 : 0))));
       }
     }
 
@@ -198,9 +197,6 @@ export class AudioCaptureService {
       speechRate = parseFloat(((crossings * 0.5) / duration).toFixed(1));
       speechRate = Math.max(0.5, Math.min(12, speechRate));
     }
-
-    consistency = Math.max(0, Math.min(100, Math.round(consistency)));
-    pitchStability = Math.max(0, Math.min(100, Math.round(pitchStability)));
 
     return { consistency, pitchStability, speechRate };
   }

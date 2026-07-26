@@ -225,24 +225,28 @@ export class FingerTapTestComponent implements OnDestroy {
     const totalCorrect = rCorrect + lCorrect;
     const overallAccuracy = totalTime > 0 ? Math.round((totalCorrect / totalTime) * 100) : 0;
 
-    const totalScore = Math.round((rAccuracy + lAccuracy) / 2);
+    const rSpeedScore = rAvgMs > 0 ? Math.max(0, Math.min(100, 100 - Math.max(0, rAvgMs - 260) / 2.5)) : 80;
+    const lSpeedScore = lAvgMs > 0 ? Math.max(0, Math.min(100, 100 - Math.max(0, lAvgMs - 260) / 2.5)) : 80;
+
+    const rQuality = (rAccuracy * 0.6) + (rSpeedScore * 0.4);
+    const lQuality = (lAccuracy * 0.6) + (lSpeedScore * 0.4);
 
     const rightItems: FingerResultItem[] = [
-      makeItem('เวลาในการตอบสนองเฉลี่ย', (rAvgMs || 0) + ' ms', Math.min(100, 100 - (rAvgMs || 0) / 5), rAvgMs > 300 ? '#C10508' : rAvgMs > 150 ? '#F59E0B' : '#05C134'),
+      makeItem('เวลาในการตอบสนองเฉลี่ย', (rAvgMs || 0) + ' ms', Math.min(100, Math.max(0, 100 - (rAvgMs || 0) / 5)), rAvgMs > 350 ? '#C10508' : rAvgMs > 250 ? '#F59E0B' : '#05C134'),
       makeItem('ความแม่นยำ', (rAccuracy || 0) + '%', (rAccuracy || 0), rAccuracy >= 80 ? '#05C134' : rAccuracy >= 50 ? '#F59E0B' : '#C10508'),
-      makeItem('จำนวนครั้งที่ตอบสนอง', (rTotal || 0) + ' ครั้ง', Math.min(100, ((rTotal || 0) / 60) * 100), '#EB661E')
+      makeItem('จำนวนครั้งที่ตอบสนอง', (rTotal || 0) + ' ครั้ง', Math.min(100, ((rTotal || 0) / 45) * 100), '#EB661E')
     ];
 
     const leftItems: FingerResultItem[] = [
-      makeItem('เวลาในการตอบสนองเฉลี่ย', (lAvgMs || 0) + ' ms', Math.min(100, 100 - (lAvgMs || 0) / 5), lAvgMs > 300 ? '#C10508' : lAvgMs > 150 ? '#F59E0B' : '#05C134'),
+      makeItem('เวลาในการตอบสนองเฉลี่ย', (lAvgMs || 0) + ' ms', Math.min(100, Math.max(0, 100 - (lAvgMs || 0) / 5)), lAvgMs > 350 ? '#C10508' : lAvgMs > 250 ? '#F59E0B' : '#05C134'),
       makeItem('ความแม่นยำ', (lAccuracy || 0) + '%', (lAccuracy || 0), lAccuracy >= 80 ? '#05C134' : lAccuracy >= 50 ? '#F59E0B' : '#C10508'),
-      makeItem('จำนวนครั้งที่ตอบสนอง', (lTotal || 0) + ' ครั้ง', Math.min(100, ((lTotal || 0) / 60) * 100), '#EB661E')
+      makeItem('จำนวนครั้งที่ตอบสนอง', (lTotal || 0) + ' ครั้ง', Math.min(100, ((lTotal || 0) / 45) * 100), '#EB661E')
     ];
 
+    const totalScore = Math.round((rQuality + lQuality) / 2);
     this.fingerResults.set({ right: rightItems, left: leftItems, totalScore });
 
-    // Calculate risk score and emit
-    const riskScore = Math.min(1, Math.max(0, (100 - totalScore) / 100));
+    const riskScore = Math.min(1.0, Math.max(0.0, (85.0 - totalScore) / 60.0));
     this.testCompleted.emit(riskScore);
   }
 

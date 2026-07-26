@@ -1,0 +1,40 @@
+{
+  "modality": "tremor",
+  "best_model_name": "RandomForest",
+  "metrics": {
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "roc_auc": 1.0,
+    "matthews_corrcoef": 1.0,
+    "cohen_kappa": 1.0,
+    "confusion_matrix": [
+      [
+        125,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        110,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        104,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        61
+      ]
+    ],
+    "model": "RandomForest"
+  }
+}

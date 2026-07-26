@@ -174,10 +174,11 @@ export class TestPage implements OnInit, OnDestroy {
 
       this.showToast(`🤖 AI วิเคราะห์เสร็จ: ${riskLevel} (${result.confidence * 100 | 0}% confidence)`, 'teal');
 
-    } catch (err) {
+    } catch (err: any) {
       console.error('[PMDS] API error:', err);
       this.analyzeError = true;
-      this.showToast('⚠️ ไม่สามารถเชื่อมต่อ AI ได้ ใช้การคำนวณแบบเดิมแทน', 'warn');
+      const errMsg = err?.message || 'ไม่สามารถเชื่อมต่อ AI ได้';
+      this.showToast(`⚠️ เชื่อม AI ไม่สำเร็จ: ${errMsg} (ใช้เกณฑ์ประเมินมาตรฐาน)`, 'warn');
 
       // Fallback: คำนวณแบบเดิมถ้า API ไม่ตอบ
       this.showFinalResultFallback(sessionScores);
