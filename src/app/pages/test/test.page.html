@@ -66,6 +66,23 @@
           <button class="btn btn-primary btn-full btn-large" *ngIf="allTestsDone" (click)="showFinalResult()">📊 ดูผลการประเมินรวม</button>
           <p class="text-center text-muted small" *ngIf="!allTestsDone">ทดสอบครบ 5 มิติเพื่อดูผลรวม</p>
         </div>
+
+        <!-- FILE UPLOAD DATASET ANALYSIS SECTION -->
+        <div class="mt-20 p-16" style="background:#fff; border-radius:16px; border:1px solid #3b82f6; box-shadow: 0 4px 14px rgba(59,130,246,0.12); position:relative;">
+          <div style="display:flex; align-items:center; justify-content:space-between;" class="mb-8">
+            <div style="font-size: 15px; font-weight:700; color:#1d4ed8;">📂 อัปโหลดไฟล์ชุดข้อมูล (Dataset File)</div>
+            <span class="badge" style="background:#dbeafe; color:#1e40af; border:none; font-size:11px; padding:3px 8px;">CSV / DATA</span>
+          </div>
+          <p class="text-muted small mb-12">เลือกไฟล์ชุดข้อมูล (.csv, .data, .txt) จากมือถือของคุณเพื่อส่งเข้าวิเคราะห์ผ่านระบบ AI</p>
+
+          <!-- Direct Native File Label Button -->
+          <label class="btn btn-primary btn-full btn-large" style="background:#2563eb; border:none; box-shadow:0 4px 12px rgba(37,99,235,0.3); position:relative; display:flex; align-items:center; justify-content:center; cursor:pointer; overflow:hidden;">
+            <input type="file" accept=".csv,.data,.txt,*/*" style="position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; z-index:10; cursor:pointer;" (change)="onFileSelected($event)">
+            <span *ngIf="!isProcessingFile" style="pointer-events:none; font-weight:700;">📁 เลือกไฟล์จากโทรศัพท์มือถือ</span>
+            <span *ngIf="isProcessingFile" style="pointer-events:none; font-weight:700;">⏳ กำลังส่งวิเคราะห์ผ่าน AI...</span>
+          </label>
+        </div>
+
         <div style="height:20px"></div>
       </ng-container>
 

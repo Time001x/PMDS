@@ -3,7 +3,12 @@ import { Capacitor, CapacitorHttp } from '@capacitor/core';
 
 // Candidate AI URLs for real phone, emulator & localhost
 const CANDIDATE_URLS = [
+  'http://192.168.0.102:8000',
   'http://192.168.0.103:8000',
+  'http://192.168.0.100:8000',
+  'http://192.168.0.101:8000',
+  'http://192.168.0.104:8000',
+  'http://192.168.0.105:8000',
   'http://10.0.2.2:8000',
   'http://localhost:8000',
   'http://127.0.0.1:8000'
@@ -37,20 +42,22 @@ export interface PredictResult {
   confidence: number;
 }
 
-export type RiskLevel = 'ปกติ' | 'เสี่ยงน้อย' | 'เสี่ยงปานกลาง' | 'เสี่ยงมาก';
+export type RiskLevel = 'ไม่มีอาการ' | 'เล็กน้อย' | 'เสี่ยงปานกลาง' | 'เสี่ยงมาก' | 'อาการรุนแรง';
 
-export function getRiskLevel(percent: number): RiskLevel {
-  if (percent < 30) return 'ปกติ';
-  if (percent < 50) return 'เสี่ยงน้อย';
-  if (percent < 70) return 'เสี่ยงปานกลาง';
-  return 'เสี่ยงมาก';
+export function getRiskLevel(percent: number): string {
+  if (percent < 20) return 'ไม่มีอาการ';
+  if (percent < 40) return 'เล็กน้อย';
+  if (percent < 60) return 'เสี่ยงปานกลาง';
+  if (percent < 80) return 'เสี่ยงมาก';
+  return 'อาการรุนแรง';
 }
 
 export function getRiskColor(percent: number): string {
-  if (percent < 30) return '#05C134';
-  if (percent < 50) return '#F59E0B';
-  if (percent < 70) return '#FF6B35';
-  return '#C10508';
+  if (percent < 20) return '#05C134'; // ไม่มีอาการ (สีเขียว)
+  if (percent < 40) return '#10B981'; // เล็กน้อย (สีเขียว)
+  if (percent < 60) return '#F59E0B'; // เสี่ยงปานกลาง (สีเหลือง)
+  if (percent < 80) return '#F97316'; // เสี่ยงมาก (สีส้ม)
+  return '#C10508';                 // อาการรุนแรง (สีแดง)
 }
 
 @Injectable({

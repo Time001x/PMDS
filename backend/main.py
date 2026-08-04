@@ -69,7 +69,7 @@ def load_models():
 
 # ── Schemas ───────────────────────────────────────────────────────────────────
 class PredictPayload(BaseModel):
-    uid: str
+    uid: Optional[str] = "demo_user"
     SpeechProblems: float = 0
     Tremor: float = 0
     PosturalInstability: float = 0
@@ -79,11 +79,11 @@ class PredictPayload(BaseModel):
     MoCA: float = 26
     FunctionalAssessment: float = 100
     Age: float = 60
-    speechScore: Optional[float] = None
-    tremorScore: Optional[float] = None
-    fingerScore: Optional[float] = None
-    gaitScore: Optional[float] = None
-    questionnaireScore: Optional[float] = None
+    speechScore: Optional[float] = 0
+    tremorScore: Optional[float] = 0
+    fingerScore: Optional[float] = 0
+    gaitScore: Optional[float] = 0
+    questionnaireScore: Optional[float] = 0
 
 class PredictResult(BaseModel):
     uid: str
@@ -95,18 +95,28 @@ class PredictResult(BaseModel):
     confidence: float
     details: Optional[Dict[str, float]] = None
 
-def get_risk_level_info(val: float):
+def get_risk_level_info(val: float, modal_risks: list = None):
+    # MDS-UPDRS Official Rating Scale (0 to 4 Scale)
+    if modal_risks is not None and len(modal_risks) >= 5:
+        normal_count = sum(1 for r in modal_risks if r < 0.35)
+        high_risk_count = sum(1 for r in modal_risks if r >= 0.50)
+
+        if normal_count >= 3:
+            return "ไม่มีอาการ", "ไม่มีอาการ", "#05C134"
+        elif high_risk_count >= 3:
+            return "เสี่ยงมาก", "เสี่ยงมาก", "#F97316"
+
     norm = val / 100.0 if val > 1.0 else val
     if norm >= 0.80:
-        return "เสี่ยงรุนแรง", "เสี่ยงรุนแรง", "#C10508"
+        return "อาการรุนแรง", "อาการรุนแรง", "#C10508"
     elif norm >= 0.60:
-        return "ค่อนข้างเสี่ยง", "ค่อนข้างเสี่ยง", "#C10508"
+        return "เสี่ยงมาก", "เสี่ยงมาก", "#F97316"
     elif norm >= 0.40:
         return "เสี่ยงปานกลาง", "เสี่ยงปานกลาง", "#F59E0B"
     elif norm >= 0.20:
-        return "เสี่ยงเล็กน้อย", "เสี่ยงเล็กน้อย", "#F59E0B"
+        return "เล็กน้อย", "เล็กน้อย", "#10B981"
     else:
-        return "ปกติ (ไม่พบอาการ)", "ปกติ (ไม่พบอาการ)", "#05C134"
+        return "ไม่มีอาการ", "ไม่มีอาการ", "#05C134"
 
 def predict_modality(modality: str, feature_dict: Dict[str, float]) -> float:
     if modality not in MODELS:
@@ -123,19 +133,17 @@ def predict_modality(modality: str, feature_dict: Dict[str, float]) -> float:
 
     row_data = {}
     for col in cols:
-        row_data[col] = feature_dict.get(col, 0.5)
+        row_data[col] = feature_dict.get(col, 0.0)
 
-    df = pd.DataFrame([row_data])
-    transformed = transformer.transform(df)
-    selected = selector.transform(transformed) if selector else transformed
-
-    proba = model.predict_proba(selected)
-    if proba.shape[1] > 1:
-        if proba.shape[1] > 2:
-            weights = np.linspace(0, 1, proba.shape[1])
-            return float(np.sum(proba[0] * weights))
-        return float(proba[0][1])
-    return float(proba[0][0])
+    try:
+        df_in = pd.DataFrame([row_data])
+        X_trans = transformer.transform(df_in)
+        X_sel = selector.transform(X_trans)
+        probs = model.predict_proba(X_sel)
+        return float(probs[0][1])
+    except Exception as e:
+        print(f"[PMDS AI Backend] Error predicting '{modality}': {e}")
+        return 0.0
 
 # ── Endpoints ─────────────────────────────────────────────────────────────────
 @app.get("/")
@@ -209,12 +217,21 @@ def predict(payload: PredictPayload):
     }
     modality_scores['voice'] = predict_modality('voice', v_dict)
 
-    # Multi-Modal Max Severity & Weighted Ensemble
-    max_modal_risk = max([speech_risk, tremor_risk, finger_risk, gait_risk, questionnaire_risk])
-    weights = {'questionnaire': 0.25, 'tremor': 0.20, 'finger': 0.20, 'gait': 0.20, 'voice': 0.15}
-    weighted_risk = sum(modality_scores[m] * weights[m] for m in MODALITIES if m in modality_scores)
-    
-    total_risk = max(max_modal_risk * 0.85, weighted_risk)
+    # ── Majority Decision Rule (3 out of 5 tests rule) ───────────────────
+    modal_risks = [speech_risk, tremor_risk, finger_risk, gait_risk, questionnaire_risk]
+    normal_count = sum(1 for r in modal_risks if r < 0.35)
+    high_risk_count = sum(1 for r in modal_risks if r >= 0.50)
+
+    if normal_count >= 3:
+        total_risk = min(0.20, float(np.mean(modal_risks)))
+    elif high_risk_count >= 3:
+        total_risk = max(0.78, float(np.mean(modal_risks)))
+    else:
+        max_modal_risk = max(modal_risks)
+        weights = {'questionnaire': 0.25, 'tremor': 0.20, 'finger': 0.20, 'gait': 0.20, 'voice': 0.15}
+        weighted_risk = sum(modality_scores[m] * weights[m] for m in MODALITIES if m in modality_scores)
+        total_risk = max(max_modal_risk * 0.85, weighted_risk)
+
     risk_percent = int(round(total_risk * 100))
     diagnosis, label, color = get_risk_level_info(risk_percent)
 

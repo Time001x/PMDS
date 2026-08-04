@@ -418,23 +418,24 @@ export class MotionSensorService {
     }
     const freqNum = parseFloat(dominantFreq);
 
-    if (isNaN(freqNum) || isNaN(severityNum) || severityNum < 0.05) {
+    // MDS-UPDRS Item 3.17 Rest Tremor: Amplitude < 0.35 m/s2 is Level 0 (Normal holding)
+    if (isNaN(freqNum) || isNaN(severityNum) || severityNum < 0.35) {
       return {
-        frequency: dominantFreq || '0.0', severity: amplitude, duration: TREMOR_DURATION,
+        frequency: '0.0', severity: amplitude, duration: TREMOR_DURATION,
         freqPercent: 0, freqColor: '#05C134',
-        severityPercent: 5, severityColor: '#05C134', totalScore: 92,
+        severityPercent: 5, severityColor: '#05C134', totalScore: 95,
       };
     }
 
-    const inPDRange = freqNum >= 4.0 && freqNum <= 6.5;
+    const inPDRange = freqNum >= 4.0 && freqNum <= 6.5 && severityNum >= 0.35;
     const freqFactor = inPDRange ? 1.0 : (freqNum > 2.0 ? 0.3 : 0.0);
-    const severityFactor = Math.min(1.0, Math.max(0.0, (severityNum - 0.15) / 1.2));
+    const severityFactor = Math.min(1.0, Math.max(0.0, (severityNum - 0.35) / 1.0));
 
     const riskScore = Math.min(1.0, Math.max(0.0, freqFactor * 0.6 + severityFactor * 0.4));
     const totalScore = Math.round(100 - riskScore * 100);
 
-    const freqColor = inPDRange && severityNum > 0.25 ? '#C10508' : freqNum > 2 ? '#F59E0B' : '#05C134';
-    const severityColor = severityNum > 0.5 ? '#C10508' : severityNum > 0.25 ? '#F59E0B' : '#05C134';
+    const freqColor = inPDRange ? '#C10508' : freqNum > 2 ? '#F59E0B' : '#05C134';
+    const severityColor = severityNum > 0.75 ? '#C10508' : severityNum > 0.35 ? '#F59E0B' : '#05C134';
 
     return {
       frequency: dominantFreq, severity: amplitude, duration: TREMOR_DURATION,
@@ -584,22 +585,22 @@ export class MotionSensorService {
     }
 
     // 1. Stride Time Variability (cv)
-    let cv = 0;
+    let cv = 10;
     if (strideTimes.length >= 2) {
       const mean = strideTimes.reduce((a, b) => a + b, 0) / strideTimes.length;
       const sd = Math.sqrt(strideTimes.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / strideTimes.length);
       cv = (sd / mean) * 100;
     }
 
-    // 2. Freezing of Gait / Pauses (gaps > 1.4s between steps)
+    // 2. Freezing of Gait / Pauses (gaps > 2.0s between steps)
     let pauseCount = 0;
     for (let i = 1; i < peaks.length; i++) {
       const gap = data[peaks[i]].t - data[peaks[i - 1]].t;
-      if (gap > 1400) {
+      if (gap > 2000) {
         pauseCount++;
       }
     }
-    const pauseRisk = Math.min(1.0, pauseCount * 0.35);
+    const pauseRisk = Math.min(1.0, pauseCount * 0.25);
 
     // 3. Consecutive Stride Asymmetry (long step vs short step ratio)
     let ratioDev = 0;
@@ -611,13 +612,13 @@ export class MotionSensorService {
       }
       ratioDev = ratioSum / (strideTimes.length - 1);
     }
-    const asymmetryRisk = Math.min(1.0, ratioDev * 1.5);
+    const asymmetryRisk = Math.min(1.0, ratioDev * 1.0);
 
-    // 4. Low impact shuffling / Dragging feet (mean dynamic acceleration < 0.6 m/s^2)
-    const shufflingRisk = meanDyn < 0.5 ? Math.min(1.0, (0.5 - meanDyn) / 0.35) : 0;
+    // 4. Low impact shuffling / Dragging feet (mean dynamic acceleration < 0.4 m/s^2)
+    const shufflingRisk = meanDyn < 0.35 ? Math.min(1.0, (0.35 - meanDyn) / 0.3) : 0;
 
     // Combined Gait Risk Score according to MDS-UPDRS Item 3.10
-    const cvRisk = Math.min(1.0, Math.max(0.0, (cv - 15.0) / 30.0));
+    const cvRisk = Math.min(1.0, Math.max(0.0, (cv - 22.0) / 35.0));
 
     const riskScore = Math.min(1.0, Math.max(0.0, cvRisk * 0.4 + pauseRisk * 0.3 + asymmetryRisk * 0.2 + shufflingRisk * 0.1));
     const totalScore = Math.round(100 - riskScore * 100);

@@ -169,25 +169,26 @@ export class AudioCaptureService {
     const activeVolumes = volumeSamples.filter(v => v >= 8);
     const volumesToUse = activeVolumes.length > 3 ? activeVolumes : volumeSamples;
 
-    let consistency = 85;
-    if (volumesToUse.length > 0) {
-      const meanVol = volumesToUse.reduce((a, b) => a + b, 0) / volumesToUse.length;
-      const variance = volumesToUse.reduce((sum, v) => sum + (v - meanVol) ** 2, 0) / volumesToUse.length;
-      const stdDev = Math.sqrt(variance);
-      // High precision penalty: stdDev <= 5 -> consistency = 95%, stdDev >= 12 -> consistency <= 50%
-      consistency = Math.round(Math.max(0, Math.min(100, 100 - (stdDev > 5.0 ? (stdDev - 5.0) * 6.5 : 0))));
+    let consistency = 90;
+    if (activeVolumes.length > 0) {
+      const meanVol = activeVolumes.reduce((a, b) => a + b, 0) / activeVolumes.length;
+      const volVariance = activeVolumes.reduce((sum, v) => sum + (v - meanVol) ** 2, 0) / activeVolumes.length;
+      const volDev = Math.sqrt(volVariance);
+      const cvVol = meanVol > 0 ? (volDev / meanVol) * 100 : 20;
+
+      consistency = Math.round(Math.max(0, Math.min(100, 100 - (cvVol > 30.0 ? (cvVol - 30.0) * 2.0 : 0))));
     }
 
-    let pitchStability = 85;
+    let pitchStability = 90;
     if (pitchSamples.length > 0) {
       const voicedPitches = pitchSamples.filter((p) => p >= 70 && p <= 450);
       if (voicedPitches.length > 2) {
         const meanPitch = voicedPitches.reduce((a, b) => a + b, 0) / voicedPitches.length;
         const pitchVariance = voicedPitches.reduce((sum, p) => sum + (p - meanPitch) ** 2, 0) / voicedPitches.length;
         const pitchDev = Math.sqrt(pitchVariance);
-        const relativeDev = meanPitch > 0 ? (pitchDev / meanPitch) * 100 : 20;
-        // High precision penalty: relativeDev <= 7% -> stability = 95%, relativeDev >= 16% -> stability <= 50%
-        pitchStability = Math.round(Math.max(0, Math.min(100, 100 - (relativeDev > 7.0 ? (relativeDev - 7.0) * 5.5 : 0))));
+        const relativeDev = meanPitch > 0 ? (pitchDev / meanPitch) * 100 : 15;
+        
+        pitchStability = Math.round(Math.max(0, Math.min(100, 100 - (relativeDev > 22.0 ? (relativeDev - 22.0) * 2.5 : 0))));
       }
     }
 

@@ -1,0 +1,1515 @@
+sample_id,modality,is_parkinson,group_label,feature_score,speechScore,tremorScore,fingerScore,gaitScore
+voice_1,voice,1,Parkinson,0.3136,0.3136,0.0,0.0,0.0
+voice_2,voice,1,Parkinson,0.3872,0.3872,0.0,0.0,0.0
+voice_3,voice,1,Parkinson,0.42,0.42,0.0,0.0,0.0
+voice_4,voice,1,Parkinson,0.3988,0.3988,0.0,0.0,0.0
+voice_5,voice,1,Parkinson,0.5136,0.5136,0.0,0.0,0.0
+voice_6,voice,1,Parkinson,0.3872,0.3872,0.0,0.0,0.0
+voice_7,voice,1,Parkinson,0.1332,0.1332,0.0,0.0,0.0
+voice_8,voice,1,Parkinson,0.116,0.116,0.0,0.0,0.0
+voice_9,voice,1,Parkinson,0.2204,0.2204,0.0,0.0,0.0
+voice_10,voice,1,Parkinson,0.2128,0.2128,0.0,0.0,0.0
+voice_11,voice,1,Parkinson,0.202,0.202,0.0,0.0,0.0
+voice_12,voice,1,Parkinson,0.216,0.216,0.0,0.0,0.0
+voice_13,voice,1,Parkinson,0.1172,0.1172,0.0,0.0,0.0
+voice_14,voice,1,Parkinson,0.156,0.156,0.0,0.0,0.0
+voice_15,voice,1,Parkinson,0.1176,0.1176,0.0,0.0,0.0
+voice_16,voice,1,Parkinson,0.1476,0.1476,0.0,0.0,0.0
+voice_17,voice,1,Parkinson,0.2176,0.2176,0.0,0.0,0.0
+voice_18,voice,1,Parkinson,0.2872,0.2872,0.0,0.0,0.0
+voice_19,voice,1,Parkinson,0.2968,0.2968,0.0,0.0,0.0
+voice_20,voice,1,Parkinson,0.3072,0.3072,0.0,0.0,0.0
+voice_21,voice,1,Parkinson,0.336,0.336,0.0,0.0,0.0
+voice_22,voice,1,Parkinson,0.192,0.192,0.0,0.0,0.0
+voice_23,voice,1,Parkinson,0.1768,0.1768,0.0,0.0,0.0
+voice_24,voice,1,Parkinson,0.1904,0.1904,0.0,0.0,0.0
+voice_25,voice,1,Parkinson,0.2968,0.2968,0.0,0.0,0.0
+voice_26,voice,1,Parkinson,0.2532,0.2532,0.0,0.0,0.0
+voice_27,voice,1,Parkinson,0.182,0.182,0.0,0.0,0.0
+voice_28,voice,1,Parkinson,0.1984,0.1984,0.0,0.0,0.0
+voice_29,voice,1,Parkinson,0.124,0.124,0.0,0.0,0.0
+voice_30,voice,1,Parkinson,0.2008,0.2008,0.0,0.0,0.0
+voice_31,voice,0,Healthy Control,0.1156,0.1156,0.0,0.0,0.0
+voice_32,voice,0,Healthy Control,0.0964,0.0964,0.0,0.0,0.0
+voice_33,voice,0,Healthy Control,0.0848,0.0848,0.0,0.0,0.0
+voice_34,voice,0,Healthy Control,0.072,0.072,0.0,0.0,0.0
+voice_35,voice,0,Healthy Control,0.0712,0.0712,0.0,0.0,0.0
+voice_36,voice,0,Healthy Control,0.0792,0.0792,0.0,0.0,0.0
+voice_37,voice,1,Parkinson,0.1644,0.1644,0.0,0.0,0.0
+voice_38,voice,1,Parkinson,0.1476,0.1476,0.0,0.0,0.0
+voice_39,voice,1,Parkinson,0.1136,0.1136,0.0,0.0,0.0
+voice_40,voice,1,Parkinson,0.1264,0.1264,0.0,0.0,0.0
+voice_41,voice,1,Parkinson,0.1192,0.1192,0.0,0.0,0.0
+voice_42,voice,1,Parkinson,0.1032,0.1032,0.0,0.0,0.0
+voice_43,voice,0,Healthy Control,0.1192,0.1192,0.0,0.0,0.0
+voice_44,voice,0,Healthy Control,0.1124,0.1124,0.0,0.0,0.0
+voice_45,voice,0,Healthy Control,0.084,0.084,0.0,0.0,0.0
+voice_46,voice,0,Healthy Control,0.09,0.09,0.0,0.0,0.0
+voice_47,voice,0,Healthy Control,0.094,0.094,0.0,0.0,0.0
+voice_48,voice,0,Healthy Control,0.074,0.074,0.0,0.0,0.0
+voice_49,voice,0,Healthy Control,0.2096,0.2096,0.0,0.0,0.0
+voice_50,voice,0,Healthy Control,0.1712,0.1712,0.0,0.0,0.0
+voice_51,voice,0,Healthy Control,0.1724,0.1724,0.0,0.0,0.0
+voice_52,voice,0,Healthy Control,0.1792,0.1792,0.0,0.0,0.0
+voice_53,voice,0,Healthy Control,0.1744,0.1744,0.0,0.0,0.0
+voice_54,voice,0,Healthy Control,0.196,0.196,0.0,0.0,0.0
+voice_55,voice,1,Parkinson,0.3044,0.3044,0.0,0.0,0.0
+voice_56,voice,1,Parkinson,0.3496,0.3496,0.0,0.0,0.0
+voice_57,voice,1,Parkinson,0.3136,0.3136,0.0,0.0,0.0
+voice_58,voice,1,Parkinson,0.3008,0.3008,0.0,0.0,0.0
+voice_59,voice,1,Parkinson,0.3152,0.3152,0.0,0.0,0.0
+voice_60,voice,1,Parkinson,0.3468,0.3468,0.0,0.0,0.0
+voice_61,voice,0,Healthy Control,0.1128,0.1128,0.0,0.0,0.0
+voice_62,voice,0,Healthy Control,0.1056,0.1056,0.0,0.0,0.0
+voice_63,voice,0,Healthy Control,0.1064,0.1064,0.0,0.0,0.0
+voice_64,voice,0,Healthy Control,0.1184,0.1184,0.0,0.0,0.0
+voice_65,voice,0,Healthy Control,0.082,0.082,0.0,0.0,0.0
+voice_66,voice,0,Healthy Control,0.0952,0.0952,0.0,0.0,0.0
+voice_67,voice,1,Parkinson,0.3268,0.3268,0.0,0.0,0.0
+voice_68,voice,1,Parkinson,0.3692,0.3692,0.0,0.0,0.0
+voice_69,voice,1,Parkinson,0.4404,0.4404,0.0,0.0,0.0
+voice_70,voice,1,Parkinson,0.3048,0.3048,0.0,0.0,0.0
+voice_71,voice,1,Parkinson,0.3324,0.3324,0.0,0.0,0.0
+voice_72,voice,1,Parkinson,0.3884,0.3884,0.0,0.0,0.0
+voice_73,voice,1,Parkinson,0.162,0.162,0.0,0.0,0.0
+voice_74,voice,1,Parkinson,0.2132,0.2132,0.0,0.0,0.0
+voice_75,voice,1,Parkinson,0.1976,0.1976,0.0,0.0,0.0
+voice_76,voice,1,Parkinson,0.2064,0.2064,0.0,0.0,0.0
+voice_77,voice,1,Parkinson,0.2,0.2,0.0,0.0,0.0
+voice_78,voice,1,Parkinson,0.1848,0.1848,0.0,0.0,0.0
+voice_79,voice,1,Parkinson,0.2432,0.2432,0.0,0.0,0.0
+voice_80,voice,1,Parkinson,0.4152,0.4152,0.0,0.0,0.0
+voice_81,voice,1,Parkinson,0.2776,0.2776,0.0,0.0,0.0
+voice_82,voice,1,Parkinson,0.2808,0.2808,0.0,0.0,0.0
+voice_83,voice,1,Parkinson,0.2424,0.2424,0.0,0.0,0.0
+voice_84,voice,1,Parkinson,0.1728,0.1728,0.0,0.0,0.0
+voice_85,voice,1,Parkinson,0.2988,0.2988,0.0,0.0,0.0
+voice_86,voice,1,Parkinson,0.1624,0.1624,0.0,0.0,0.0
+voice_87,voice,1,Parkinson,0.1284,0.1284,0.0,0.0,0.0
+voice_88,voice,1,Parkinson,0.208,0.208,0.0,0.0,0.0
+voice_89,voice,1,Parkinson,0.1792,0.1792,0.0,0.0,0.0
+voice_90,voice,1,Parkinson,0.2836,0.2836,0.0,0.0,0.0
+voice_91,voice,1,Parkinson,0.2968,0.2968,0.0,0.0,0.0
+voice_92,voice,1,Parkinson,0.1676,0.1676,0.0,0.0,0.0
+voice_93,voice,1,Parkinson,0.1836,0.1836,0.0,0.0,0.0
+voice_94,voice,1,Parkinson,0.1528,0.1528,0.0,0.0,0.0
+voice_95,voice,1,Parkinson,0.1432,0.1432,0.0,0.0,0.0
+voice_96,voice,1,Parkinson,0.1476,0.1476,0.0,0.0,0.0
+voice_97,voice,1,Parkinson,0.1368,0.1368,0.0,0.0,0.0
+voice_98,voice,1,Parkinson,0.512,0.512,0.0,0.0,0.0
+voice_99,voice,1,Parkinson,0.5512,0.5512,0.0,0.0,0.0
+voice_100,voice,1,Parkinson,0.7744,0.7744,0.0,0.0,0.0
+voice_101,voice,1,Parkinson,0.95,0.95,0.0,0.0,0.0
+voice_102,voice,1,Parkinson,0.6204,0.6204,0.0,0.0,0.0
+voice_103,voice,1,Parkinson,0.95,0.95,0.0,0.0,0.0
+voice_104,voice,1,Parkinson,0.0992,0.0992,0.0,0.0,0.0
+voice_105,voice,1,Parkinson,0.0732,0.0732,0.0,0.0,0.0
+voice_106,voice,1,Parkinson,0.1028,0.1028,0.0,0.0,0.0
+voice_107,voice,1,Parkinson,0.0672,0.0672,0.0,0.0,0.0
+voice_108,voice,1,Parkinson,0.1032,0.1032,0.0,0.0,0.0
+voice_109,voice,1,Parkinson,0.0696,0.0696,0.0,0.0,0.0
+voice_110,voice,1,Parkinson,0.3064,0.3064,0.0,0.0,0.0
+voice_111,voice,1,Parkinson,0.2484,0.2484,0.0,0.0,0.0
+voice_112,voice,1,Parkinson,0.2436,0.2436,0.0,0.0,0.0
+voice_113,voice,1,Parkinson,0.3364,0.3364,0.0,0.0,0.0
+voice_114,voice,1,Parkinson,0.2136,0.2136,0.0,0.0,0.0
+voice_115,voice,1,Parkinson,0.198,0.198,0.0,0.0,0.0
+voice_116,voice,1,Parkinson,0.3424,0.3424,0.0,0.0,0.0
+voice_117,voice,1,Parkinson,0.1904,0.1904,0.0,0.0,0.0
+voice_118,voice,1,Parkinson,0.222,0.222,0.0,0.0,0.0
+voice_119,voice,1,Parkinson,0.1848,0.1848,0.0,0.0,0.0
+voice_120,voice,1,Parkinson,0.1616,0.1616,0.0,0.0,0.0
+voice_121,voice,1,Parkinson,0.2324,0.2324,0.0,0.0,0.0
+voice_122,voice,1,Parkinson,0.184,0.184,0.0,0.0,0.0
+voice_123,voice,1,Parkinson,0.2816,0.2816,0.0,0.0,0.0
+voice_124,voice,1,Parkinson,0.3368,0.3368,0.0,0.0,0.0
+voice_125,voice,1,Parkinson,0.2776,0.2776,0.0,0.0,0.0
+voice_126,voice,1,Parkinson,0.2932,0.2932,0.0,0.0,0.0
+voice_127,voice,1,Parkinson,0.2176,0.2176,0.0,0.0,0.0
+voice_128,voice,1,Parkinson,0.2552,0.2552,0.0,0.0,0.0
+voice_129,voice,1,Parkinson,0.176,0.176,0.0,0.0,0.0
+voice_130,voice,1,Parkinson,0.108,0.108,0.0,0.0,0.0
+voice_131,voice,1,Parkinson,0.1968,0.1968,0.0,0.0,0.0
+voice_132,voice,1,Parkinson,0.1628,0.1628,0.0,0.0,0.0
+voice_133,voice,1,Parkinson,0.1384,0.1384,0.0,0.0,0.0
+voice_134,voice,1,Parkinson,0.1324,0.1324,0.0,0.0,0.0
+voice_135,voice,1,Parkinson,0.2356,0.2356,0.0,0.0,0.0
+voice_136,voice,1,Parkinson,0.1976,0.1976,0.0,0.0,0.0
+voice_137,voice,1,Parkinson,0.1804,0.1804,0.0,0.0,0.0
+voice_138,voice,1,Parkinson,0.2008,0.2008,0.0,0.0,0.0
+voice_139,voice,1,Parkinson,0.1888,0.1888,0.0,0.0,0.0
+voice_140,voice,1,Parkinson,0.1524,0.1524,0.0,0.0,0.0
+voice_141,voice,1,Parkinson,0.2284,0.2284,0.0,0.0,0.0
+voice_142,voice,1,Parkinson,0.3028,0.3028,0.0,0.0,0.0
+voice_143,voice,1,Parkinson,0.1504,0.1504,0.0,0.0,0.0
+voice_144,voice,1,Parkinson,0.148,0.148,0.0,0.0,0.0
+voice_145,voice,1,Parkinson,0.1016,0.1016,0.0,0.0,0.0
+voice_146,voice,1,Parkinson,0.1408,0.1408,0.0,0.0,0.0
+voice_147,voice,1,Parkinson,0.6272,0.6272,0.0,0.0,0.0
+voice_148,voice,1,Parkinson,0.5864,0.5864,0.0,0.0,0.0
+voice_149,voice,1,Parkinson,0.6876,0.6876,0.0,0.0,0.0
+voice_150,voice,1,Parkinson,0.6508,0.6508,0.0,0.0,0.0
+voice_151,voice,1,Parkinson,0.7488,0.7488,0.0,0.0,0.0
+voice_152,voice,1,Parkinson,0.95,0.95,0.0,0.0,0.0
+voice_153,voice,1,Parkinson,0.95,0.95,0.0,0.0,0.0
+voice_154,voice,1,Parkinson,0.2736,0.2736,0.0,0.0,0.0
+voice_155,voice,1,Parkinson,0.2768,0.2768,0.0,0.0,0.0
+voice_156,voice,1,Parkinson,0.2588,0.2588,0.0,0.0,0.0
+voice_157,voice,1,Parkinson,0.2908,0.2908,0.0,0.0,0.0
+voice_158,voice,1,Parkinson,0.7252,0.7252,0.0,0.0,0.0
+voice_159,voice,1,Parkinson,0.39,0.39,0.0,0.0,0.0
+voice_160,voice,1,Parkinson,0.242,0.242,0.0,0.0,0.0
+voice_161,voice,1,Parkinson,0.2324,0.2324,0.0,0.0,0.0
+voice_162,voice,1,Parkinson,0.2476,0.2476,0.0,0.0,0.0
+voice_163,voice,1,Parkinson,0.2604,0.2604,0.0,0.0,0.0
+voice_164,voice,1,Parkinson,0.2076,0.2076,0.0,0.0,0.0
+voice_165,voice,1,Parkinson,0.3628,0.3628,0.0,0.0,0.0
+voice_166,voice,0,Healthy Control,0.1108,0.1108,0.0,0.0,0.0
+voice_167,voice,0,Healthy Control,0.1212,0.1212,0.0,0.0,0.0
+voice_168,voice,0,Healthy Control,0.1356,0.1356,0.0,0.0,0.0
+voice_169,voice,0,Healthy Control,0.3212,0.3212,0.0,0.0,0.0
+voice_170,voice,0,Healthy Control,0.2068,0.2068,0.0,0.0,0.0
+voice_171,voice,0,Healthy Control,0.1804,0.1804,0.0,0.0,0.0
+voice_172,voice,0,Healthy Control,0.142,0.142,0.0,0.0,0.0
+voice_173,voice,0,Healthy Control,0.1424,0.1424,0.0,0.0,0.0
+voice_174,voice,0,Healthy Control,0.1396,0.1396,0.0,0.0,0.0
+voice_175,voice,0,Healthy Control,0.1412,0.1412,0.0,0.0,0.0
+voice_176,voice,0,Healthy Control,0.1328,0.1328,0.0,0.0,0.0
+voice_177,voice,0,Healthy Control,0.1384,0.1384,0.0,0.0,0.0
+voice_178,voice,1,Parkinson,0.1256,0.1256,0.0,0.0,0.0
+voice_179,voice,1,Parkinson,0.1236,0.1236,0.0,0.0,0.0
+voice_180,voice,1,Parkinson,0.1568,0.1568,0.0,0.0,0.0
+voice_181,voice,1,Parkinson,0.1584,0.1584,0.0,0.0,0.0
+voice_182,voice,1,Parkinson,0.1588,0.1588,0.0,0.0,0.0
+voice_183,voice,1,Parkinson,0.1344,0.1344,0.0,0.0,0.0
+voice_184,voice,0,Healthy Control,0.1668,0.1668,0.0,0.0,0.0
+voice_185,voice,0,Healthy Control,0.2124,0.2124,0.0,0.0,0.0
+voice_186,voice,0,Healthy Control,0.1256,0.1256,0.0,0.0,0.0
+voice_187,voice,0,Healthy Control,0.1984,0.1984,0.0,0.0,0.0
+voice_188,voice,0,Healthy Control,0.1068,0.1068,0.0,0.0,0.0
+voice_189,voice,0,Healthy Control,0.1308,0.1308,0.0,0.0,0.0
+voice_190,voice,0,Healthy Control,0.2776,0.2776,0.0,0.0,0.0
+voice_191,voice,0,Healthy Control,0.1836,0.1836,0.0,0.0,0.0
+voice_192,voice,0,Healthy Control,0.2256,0.2256,0.0,0.0,0.0
+voice_193,voice,0,Healthy Control,0.544,0.544,0.0,0.0,0.0
+voice_194,voice,0,Healthy Control,0.296,0.296,0.0,0.0,0.0
+voice_195,voice,0,Healthy Control,0.2268,0.2268,0.0,0.0,0.0
+gait_1,gait,0,Healthy Control,0.2461,0.0,0.0,0.0,0.2461
+gait_2,gait,0,Healthy Control,0.3136,0.0,0.0,0.0,0.3136
+gait_3,gait,0,Healthy Control,0.3225,0.0,0.0,0.0,0.3225
+gait_4,gait,0,Healthy Control,0.2992,0.0,0.0,0.0,0.2992
+gait_5,gait,0,Healthy Control,0.2534,0.0,0.0,0.0,0.2534
+gait_6,gait,0,Healthy Control,0.2609,0.0,0.0,0.0,0.2609
+gait_7,gait,0,Healthy Control,0.2485,0.0,0.0,0.0,0.2485
+gait_8,gait,0,Healthy Control,0.3388,0.0,0.0,0.0,0.3388
+gait_9,gait,0,Healthy Control,0.3185,0.0,0.0,0.0,0.3185
+gait_10,gait,0,Healthy Control,0.2274,0.0,0.0,0.0,0.2274
+gait_11,gait,0,Healthy Control,0.2402,0.0,0.0,0.0,0.2402
+gait_12,gait,0,Healthy Control,0.4039,0.0,0.0,0.0,0.4039
+gait_13,gait,0,Healthy Control,0.393,0.0,0.0,0.0,0.393
+gait_14,gait,0,Healthy Control,0.3269,0.0,0.0,0.0,0.3269
+gait_15,gait,0,Healthy Control,0.3415,0.0,0.0,0.0,0.3415
+gait_16,gait,0,Healthy Control,0.317,0.0,0.0,0.0,0.317
+gait_17,gait,0,Healthy Control,0.3053,0.0,0.0,0.0,0.3053
+gait_18,gait,0,Healthy Control,0.4111,0.0,0.0,0.0,0.4111
+gait_19,gait,0,Healthy Control,0.3886,0.0,0.0,0.0,0.3886
+gait_20,gait,0,Healthy Control,0.422,0.0,0.0,0.0,0.422
+gait_21,gait,0,Healthy Control,0.3567,0.0,0.0,0.0,0.3567
+gait_22,gait,0,Healthy Control,0.3497,0.0,0.0,0.0,0.3497
+gait_23,gait,0,Healthy Control,0.3376,0.0,0.0,0.0,0.3376
+gait_24,gait,0,Healthy Control,0.95,0.0,0.0,0.0,0.95
+gait_25,gait,0,Healthy Control,0.2459,0.0,0.0,0.0,0.2459
+gait_26,gait,0,Healthy Control,0.2059,0.0,0.0,0.0,0.2059
+gait_27,gait,0,Healthy Control,0.1808,0.0,0.0,0.0,0.1808
+gait_28,gait,0,Healthy Control,0.2757,0.0,0.0,0.0,0.2757
+gait_29,gait,0,Healthy Control,0.2987,0.0,0.0,0.0,0.2987
+gait_30,gait,0,Healthy Control,0.2732,0.0,0.0,0.0,0.2732
+gait_31,gait,0,Healthy Control,0.3038,0.0,0.0,0.0,0.3038
+gait_32,gait,0,Healthy Control,0.2874,0.0,0.0,0.0,0.2874
+gait_33,gait,0,Healthy Control,0.3035,0.0,0.0,0.0,0.3035
+gait_34,gait,0,Healthy Control,0.3024,0.0,0.0,0.0,0.3024
+gait_35,gait,0,Healthy Control,0.3376,0.0,0.0,0.0,0.3376
+gait_36,gait,0,Healthy Control,0.3052,0.0,0.0,0.0,0.3052
+gait_37,gait,0,Healthy Control,0.468,0.0,0.0,0.0,0.468
+gait_38,gait,0,Healthy Control,0.4323,0.0,0.0,0.0,0.4323
+gait_39,gait,1,Parkinson,0.5731,0.0,0.0,0.0,0.5731
+gait_40,gait,1,Parkinson,0.5075,0.0,0.0,0.0,0.5075
+gait_41,gait,1,Parkinson,0.3959,0.0,0.0,0.0,0.3959
+gait_42,gait,1,Parkinson,0.4229,0.0,0.0,0.0,0.4229
+gait_43,gait,1,Parkinson,0.3998,0.0,0.0,0.0,0.3998
+gait_44,gait,1,Parkinson,0.3084,0.0,0.0,0.0,0.3084
+gait_45,gait,1,Parkinson,0.3017,0.0,0.0,0.0,0.3017
+gait_46,gait,1,Parkinson,0.3205,0.0,0.0,0.0,0.3205
+gait_47,gait,1,Parkinson,0.3502,0.0,0.0,0.0,0.3502
+gait_48,gait,1,Parkinson,0.3689,0.0,0.0,0.0,0.3689
+gait_49,gait,1,Parkinson,0.3533,0.0,0.0,0.0,0.3533
+gait_50,gait,1,Parkinson,0.3774,0.0,0.0,0.0,0.3774
+gait_51,gait,1,Parkinson,0.5361,0.0,0.0,0.0,0.5361
+gait_52,gait,1,Parkinson,0.5324,0.0,0.0,0.0,0.5324
+gait_53,gait,1,Parkinson,0.5471,0.0,0.0,0.0,0.5471
+gait_54,gait,1,Parkinson,0.4103,0.0,0.0,0.0,0.4103
+gait_55,gait,1,Parkinson,0.3847,0.0,0.0,0.0,0.3847
+gait_56,gait,1,Parkinson,0.3734,0.0,0.0,0.0,0.3734
+gait_57,gait,1,Parkinson,0.3594,0.0,0.0,0.0,0.3594
+gait_58,gait,1,Parkinson,0.3225,0.0,0.0,0.0,0.3225
+gait_59,gait,1,Parkinson,0.3437,0.0,0.0,0.0,0.3437
+gait_60,gait,1,Parkinson,0.3931,0.0,0.0,0.0,0.3931
+gait_61,gait,1,Parkinson,0.418,0.0,0.0,0.0,0.418
+gait_62,gait,1,Parkinson,0.4294,0.0,0.0,0.0,0.4294
+gait_63,gait,1,Parkinson,0.4312,0.0,0.0,0.0,0.4312
+gait_64,gait,1,Parkinson,0.4231,0.0,0.0,0.0,0.4231
+gait_65,gait,1,Parkinson,0.5907,0.0,0.0,0.0,0.5907
+gait_66,gait,1,Parkinson,0.4231,0.0,0.0,0.0,0.4231
+gait_67,gait,1,Parkinson,0.2846,0.0,0.0,0.0,0.2846
+gait_68,gait,1,Parkinson,0.3219,0.0,0.0,0.0,0.3219
+gait_69,gait,1,Parkinson,0.4441,0.0,0.0,0.0,0.4441
+gait_70,gait,1,Parkinson,0.5107,0.0,0.0,0.0,0.5107
+gait_71,gait,1,Parkinson,0.6027,0.0,0.0,0.0,0.6027
+gait_72,gait,1,Parkinson,0.4543,0.0,0.0,0.0,0.4543
+gait_73,gait,1,Parkinson,0.4834,0.0,0.0,0.0,0.4834
+gait_74,gait,1,Parkinson,0.4729,0.0,0.0,0.0,0.4729
+gait_75,gait,1,Parkinson,0.3266,0.0,0.0,0.0,0.3266
+gait_76,gait,1,Parkinson,0.3342,0.0,0.0,0.0,0.3342
+gait_77,gait,1,Parkinson,0.3392,0.0,0.0,0.0,0.3392
+gait_78,gait,1,Parkinson,0.3722,0.0,0.0,0.0,0.3722
+gait_79,gait,1,Parkinson,0.3819,0.0,0.0,0.0,0.3819
+gait_80,gait,1,Parkinson,0.4322,0.0,0.0,0.0,0.4322
+gait_81,gait,1,Parkinson,0.6466,0.0,0.0,0.0,0.6466
+gait_82,gait,1,Parkinson,0.6552,0.0,0.0,0.0,0.6552
+gait_83,gait,1,Parkinson,0.7687,0.0,0.0,0.0,0.7687
+gait_84,gait,1,Parkinson,0.3383,0.0,0.0,0.0,0.3383
+gait_85,gait,1,Parkinson,0.4063,0.0,0.0,0.0,0.4063
+gait_86,gait,1,Parkinson,0.3737,0.0,0.0,0.0,0.3737
+gait_87,gait,1,Parkinson,0.5553,0.0,0.0,0.0,0.5553
+gait_88,gait,1,Parkinson,0.5618,0.0,0.0,0.0,0.5618
+gait_89,gait,1,Parkinson,0.5215,0.0,0.0,0.0,0.5215
+gait_90,gait,1,Parkinson,0.3395,0.0,0.0,0.0,0.3395
+gait_91,gait,1,Parkinson,0.3271,0.0,0.0,0.0,0.3271
+gait_92,gait,1,Parkinson,0.4024,0.0,0.0,0.0,0.4024
+gait_93,gait,1,Parkinson,0.3989,0.0,0.0,0.0,0.3989
+gait_94,gait,1,Parkinson,0.4082,0.0,0.0,0.0,0.4082
+gait_95,gait,1,Parkinson,0.4866,0.0,0.0,0.0,0.4866
+gait_96,gait,1,Parkinson,0.4172,0.0,0.0,0.0,0.4172
+gait_97,gait,1,Parkinson,0.3973,0.0,0.0,0.0,0.3973
+gait_98,gait,1,Parkinson,0.4272,0.0,0.0,0.0,0.4272
+gait_99,gait,1,Parkinson,0.2838,0.0,0.0,0.0,0.2838
+gait_100,gait,1,Parkinson,0.2515,0.0,0.0,0.0,0.2515
+gait_101,gait,1,Parkinson,0.3348,0.0,0.0,0.0,0.3348
+gait_102,gait,1,Parkinson,0.5267,0.0,0.0,0.0,0.5267
+gait_103,gait,1,Parkinson,0.5934,0.0,0.0,0.0,0.5934
+gait_104,gait,1,Parkinson,0.6688,0.0,0.0,0.0,0.6688
+gait_105,gait,1,Parkinson,0.4351,0.0,0.0,0.0,0.4351
+gait_106,gait,1,Parkinson,0.4553,0.0,0.0,0.0,0.4553
+gait_107,gait,1,Parkinson,0.5635,0.0,0.0,0.0,0.5635
+gait_108,gait,1,Parkinson,0.3492,0.0,0.0,0.0,0.3492
+gait_109,gait,1,Parkinson,0.3388,0.0,0.0,0.0,0.3388
+gait_110,gait,1,Parkinson,0.3366,0.0,0.0,0.0,0.3366
+gait_111,gait,1,Parkinson,0.4885,0.0,0.0,0.0,0.4885
+gait_112,gait,1,Parkinson,0.5211,0.0,0.0,0.0,0.5211
+gait_113,gait,1,Parkinson,0.5519,0.0,0.0,0.0,0.5519
+gait_114,gait,0,Healthy Control,0.3274,0.0,0.0,0.0,0.3274
+gait_115,gait,0,Healthy Control,0.3632,0.0,0.0,0.0,0.3632
+gait_116,gait,0,Healthy Control,0.5227,0.0,0.0,0.0,0.5227
+gait_117,gait,0,Healthy Control,0.2888,0.0,0.0,0.0,0.2888
+gait_118,gait,0,Healthy Control,0.3234,0.0,0.0,0.0,0.3234
+gait_119,gait,0,Healthy Control,0.3637,0.0,0.0,0.0,0.3637
+gait_120,gait,0,Healthy Control,0.2924,0.0,0.0,0.0,0.2924
+gait_121,gait,0,Healthy Control,0.2505,0.0,0.0,0.0,0.2505
+gait_122,gait,0,Healthy Control,0.5073,0.0,0.0,0.0,0.5073
+gait_123,gait,0,Healthy Control,0.1911,0.0,0.0,0.0,0.1911
+gait_124,gait,0,Healthy Control,0.35,0.0,0.0,0.0,0.35
+gait_125,gait,0,Healthy Control,0.2436,0.0,0.0,0.0,0.2436
+gait_126,gait,0,Healthy Control,0.5599,0.0,0.0,0.0,0.5599
+gait_127,gait,0,Healthy Control,0.4078,0.0,0.0,0.0,0.4078
+gait_128,gait,0,Healthy Control,0.4603,0.0,0.0,0.0,0.4603
+gait_129,gait,0,Healthy Control,0.3267,0.0,0.0,0.0,0.3267
+gait_130,gait,0,Healthy Control,0.298,0.0,0.0,0.0,0.298
+gait_131,gait,0,Healthy Control,0.3253,0.0,0.0,0.0,0.3253
+gait_132,gait,0,Healthy Control,0.289,0.0,0.0,0.0,0.289
+gait_133,gait,0,Healthy Control,0.3679,0.0,0.0,0.0,0.3679
+gait_134,gait,0,Healthy Control,0.3491,0.0,0.0,0.0,0.3491
+gait_135,gait,0,Healthy Control,0.3436,0.0,0.0,0.0,0.3436
+gait_136,gait,0,Healthy Control,0.3134,0.0,0.0,0.0,0.3134
+gait_137,gait,0,Healthy Control,0.363,0.0,0.0,0.0,0.363
+gait_138,gait,0,Healthy Control,0.3319,0.0,0.0,0.0,0.3319
+gait_139,gait,1,Parkinson,0.3319,0.0,0.0,0.0,0.3319
+gait_140,gait,1,Parkinson,0.4005,0.0,0.0,0.0,0.4005
+gait_141,gait,1,Parkinson,0.4201,0.0,0.0,0.0,0.4201
+gait_142,gait,1,Parkinson,0.3994,0.0,0.0,0.0,0.3994
+gait_143,gait,1,Parkinson,0.4067,0.0,0.0,0.0,0.4067
+gait_144,gait,1,Parkinson,0.3939,0.0,0.0,0.0,0.3939
+gait_145,gait,1,Parkinson,0.4122,0.0,0.0,0.0,0.4122
+gait_146,gait,1,Parkinson,0.4843,0.0,0.0,0.0,0.4843
+gait_147,gait,1,Parkinson,0.4589,0.0,0.0,0.0,0.4589
+gait_148,gait,1,Parkinson,0.4432,0.0,0.0,0.0,0.4432
+gait_149,gait,1,Parkinson,0.4486,0.0,0.0,0.0,0.4486
+gait_150,gait,1,Parkinson,0.3958,0.0,0.0,0.0,0.3958
+gait_151,gait,1,Parkinson,0.4945,0.0,0.0,0.0,0.4945
+gait_152,gait,1,Parkinson,0.4284,0.0,0.0,0.0,0.4284
+gait_153,gait,1,Parkinson,0.4384,0.0,0.0,0.0,0.4384
+gait_154,gait,1,Parkinson,0.251,0.0,0.0,0.0,0.251
+gait_155,gait,1,Parkinson,0.4363,0.0,0.0,0.0,0.4363
+gait_156,gait,1,Parkinson,0.4401,0.0,0.0,0.0,0.4401
+gait_157,gait,1,Parkinson,0.4452,0.0,0.0,0.0,0.4452
+gait_158,gait,1,Parkinson,0.4509,0.0,0.0,0.0,0.4509
+gait_159,gait,1,Parkinson,0.4495,0.0,0.0,0.0,0.4495
+gait_160,gait,1,Parkinson,0.4405,0.0,0.0,0.0,0.4405
+gait_161,gait,1,Parkinson,0.4276,0.0,0.0,0.0,0.4276
+gait_162,gait,1,Parkinson,0.3566,0.0,0.0,0.0,0.3566
+gait_163,gait,1,Parkinson,0.4868,0.0,0.0,0.0,0.4868
+gait_164,gait,1,Parkinson,0.4421,0.0,0.0,0.0,0.4421
+gait_165,gait,1,Parkinson,0.4746,0.0,0.0,0.0,0.4746
+gait_166,gait,1,Parkinson,0.4713,0.0,0.0,0.0,0.4713
+gait_167,gait,1,Parkinson,0.4802,0.0,0.0,0.0,0.4802
+gait_168,gait,1,Parkinson,0.4764,0.0,0.0,0.0,0.4764
+gait_169,gait,1,Parkinson,0.4697,0.0,0.0,0.0,0.4697
+gait_170,gait,1,Parkinson,0.4424,0.0,0.0,0.0,0.4424
+gait_171,gait,1,Parkinson,0.4786,0.0,0.0,0.0,0.4786
+gait_172,gait,1,Parkinson,0.4722,0.0,0.0,0.0,0.4722
+gait_173,gait,1,Parkinson,0.4814,0.0,0.0,0.0,0.4814
+gait_174,gait,1,Parkinson,0.4637,0.0,0.0,0.0,0.4637
+gait_175,gait,1,Parkinson,0.5327,0.0,0.0,0.0,0.5327
+gait_176,gait,1,Parkinson,0.4302,0.0,0.0,0.0,0.4302
+gait_177,gait,1,Parkinson,0.442,0.0,0.0,0.0,0.442
+gait_178,gait,1,Parkinson,0.4655,0.0,0.0,0.0,0.4655
+gait_179,gait,1,Parkinson,0.4316,0.0,0.0,0.0,0.4316
+gait_180,gait,1,Parkinson,0.427,0.0,0.0,0.0,0.427
+gait_181,gait,1,Parkinson,0.4277,0.0,0.0,0.0,0.4277
+gait_182,gait,1,Parkinson,0.4054,0.0,0.0,0.0,0.4054
+gait_183,gait,1,Parkinson,0.4262,0.0,0.0,0.0,0.4262
+gait_184,gait,1,Parkinson,0.4836,0.0,0.0,0.0,0.4836
+gait_185,gait,1,Parkinson,0.2664,0.0,0.0,0.0,0.2664
+gait_186,gait,1,Parkinson,0.4051,0.0,0.0,0.0,0.4051
+gait_187,gait,1,Parkinson,0.3782,0.0,0.0,0.0,0.3782
+gait_188,gait,1,Parkinson,0.3833,0.0,0.0,0.0,0.3833
+gait_189,gait,1,Parkinson,0.394,0.0,0.0,0.0,0.394
+gait_190,gait,1,Parkinson,0.4008,0.0,0.0,0.0,0.4008
+gait_191,gait,1,Parkinson,0.3779,0.0,0.0,0.0,0.3779
+gait_192,gait,1,Parkinson,0.4067,0.0,0.0,0.0,0.4067
+gait_193,gait,1,Parkinson,0.4058,0.0,0.0,0.0,0.4058
+gait_194,gait,1,Parkinson,0.4637,0.0,0.0,0.0,0.4637
+gait_195,gait,1,Parkinson,0.5392,0.0,0.0,0.0,0.5392
+gait_196,gait,1,Parkinson,0.2758,0.0,0.0,0.0,0.2758
+gait_197,gait,1,Parkinson,0.3131,0.0,0.0,0.0,0.3131
+gait_198,gait,1,Parkinson,0.3621,0.0,0.0,0.0,0.3621
+gait_199,gait,1,Parkinson,0.3342,0.0,0.0,0.0,0.3342
+gait_200,gait,1,Parkinson,0.3299,0.0,0.0,0.0,0.3299
+gait_201,gait,1,Parkinson,0.315,0.0,0.0,0.0,0.315
+gait_202,gait,1,Parkinson,0.3384,0.0,0.0,0.0,0.3384
+gait_203,gait,1,Parkinson,0.3509,0.0,0.0,0.0,0.3509
+gait_204,gait,1,Parkinson,0.5115,0.0,0.0,0.0,0.5115
+gait_205,gait,1,Parkinson,0.5208,0.0,0.0,0.0,0.5208
+gait_206,gait,1,Parkinson,0.5111,0.0,0.0,0.0,0.5111
+gait_207,gait,1,Parkinson,0.5176,0.0,0.0,0.0,0.5176
+gait_208,gait,1,Parkinson,0.5221,0.0,0.0,0.0,0.5221
+gait_209,gait,1,Parkinson,0.5176,0.0,0.0,0.0,0.5176
+gait_210,gait,1,Parkinson,0.5228,0.0,0.0,0.0,0.5228
+gait_211,gait,1,Parkinson,0.3263,0.0,0.0,0.0,0.3263
+gait_212,gait,1,Parkinson,0.3669,0.0,0.0,0.0,0.3669
+gait_213,gait,1,Parkinson,0.2568,0.0,0.0,0.0,0.2568
+gait_214,gait,1,Parkinson,0.2974,0.0,0.0,0.0,0.2974
+gait_215,gait,1,Parkinson,0.3155,0.0,0.0,0.0,0.3155
+gait_216,gait,1,Parkinson,0.339,0.0,0.0,0.0,0.339
+gait_217,gait,1,Parkinson,0.347,0.0,0.0,0.0,0.347
+gait_218,gait,1,Parkinson,0.3263,0.0,0.0,0.0,0.3263
+gait_219,gait,1,Parkinson,0.4081,0.0,0.0,0.0,0.4081
+gait_220,gait,1,Parkinson,0.3237,0.0,0.0,0.0,0.3237
+gait_221,gait,1,Parkinson,0.4217,0.0,0.0,0.0,0.4217
+gait_222,gait,1,Parkinson,0.299,0.0,0.0,0.0,0.299
+gait_223,gait,1,Parkinson,0.4948,0.0,0.0,0.0,0.4948
+gait_224,gait,1,Parkinson,0.5453,0.0,0.0,0.0,0.5453
+gait_225,gait,1,Parkinson,0.4839,0.0,0.0,0.0,0.4839
+gait_226,gait,1,Parkinson,0.5835,0.0,0.0,0.0,0.5835
+gait_227,gait,1,Parkinson,0.5818,0.0,0.0,0.0,0.5818
+gait_228,gait,1,Parkinson,0.2184,0.0,0.0,0.0,0.2184
+gait_229,gait,1,Parkinson,0.3562,0.0,0.0,0.0,0.3562
+gait_230,gait,1,Parkinson,0.3897,0.0,0.0,0.0,0.3897
+gait_231,gait,1,Parkinson,0.38,0.0,0.0,0.0,0.38
+gait_232,gait,1,Parkinson,0.3693,0.0,0.0,0.0,0.3693
+gait_233,gait,1,Parkinson,0.3737,0.0,0.0,0.0,0.3737
+gait_234,gait,1,Parkinson,0.3734,0.0,0.0,0.0,0.3734
+gait_235,gait,1,Parkinson,0.4075,0.0,0.0,0.0,0.4075
+gait_236,gait,1,Parkinson,0.3923,0.0,0.0,0.0,0.3923
+gait_237,gait,1,Parkinson,0.4385,0.0,0.0,0.0,0.4385
+gait_238,gait,1,Parkinson,0.4385,0.0,0.0,0.0,0.4385
+gait_239,gait,1,Parkinson,0.4537,0.0,0.0,0.0,0.4537
+gait_240,gait,1,Parkinson,0.4416,0.0,0.0,0.0,0.4416
+gait_241,gait,1,Parkinson,0.4657,0.0,0.0,0.0,0.4657
+gait_242,gait,1,Parkinson,0.4912,0.0,0.0,0.0,0.4912
+gait_243,gait,0,Healthy Control,0.3331,0.0,0.0,0.0,0.3331
+gait_244,gait,0,Healthy Control,0.3595,0.0,0.0,0.0,0.3595
+gait_245,gait,0,Healthy Control,0.3883,0.0,0.0,0.0,0.3883
+gait_246,gait,0,Healthy Control,0.4209,0.0,0.0,0.0,0.4209
+gait_247,gait,0,Healthy Control,0.3019,0.0,0.0,0.0,0.3019
+gait_248,gait,0,Healthy Control,0.3025,0.0,0.0,0.0,0.3025
+gait_249,gait,0,Healthy Control,0.3019,0.0,0.0,0.0,0.3019
+gait_250,gait,0,Healthy Control,0.362,0.0,0.0,0.0,0.362
+gait_251,gait,0,Healthy Control,0.3986,0.0,0.0,0.0,0.3986
+gait_252,gait,0,Healthy Control,0.2859,0.0,0.0,0.0,0.2859
+gait_253,gait,0,Healthy Control,0.4396,0.0,0.0,0.0,0.4396
+gait_254,gait,0,Healthy Control,0.368,0.0,0.0,0.0,0.368
+gait_255,gait,0,Healthy Control,0.3905,0.0,0.0,0.0,0.3905
+gait_256,gait,0,Healthy Control,0.5114,0.0,0.0,0.0,0.5114
+gait_257,gait,0,Healthy Control,0.4283,0.0,0.0,0.0,0.4283
+gait_258,gait,0,Healthy Control,0.3425,0.0,0.0,0.0,0.3425
+gait_259,gait,0,Healthy Control,0.5,0.0,0.0,0.0,0.5
+gait_260,gait,0,Healthy Control,0.3358,0.0,0.0,0.0,0.3358
+gait_261,gait,0,Healthy Control,0.5238,0.0,0.0,0.0,0.5238
+gait_262,gait,0,Healthy Control,0.4802,0.0,0.0,0.0,0.4802
+gait_263,gait,0,Healthy Control,0.3868,0.0,0.0,0.0,0.3868
+gait_264,gait,0,Healthy Control,0.3225,0.0,0.0,0.0,0.3225
+gait_265,gait,0,Healthy Control,0.3378,0.0,0.0,0.0,0.3378
+gait_266,gait,0,Healthy Control,0.2972,0.0,0.0,0.0,0.2972
+gait_267,gait,0,Healthy Control,0.3146,0.0,0.0,0.0,0.3146
+gait_268,gait,0,Healthy Control,0.3009,0.0,0.0,0.0,0.3009
+gait_269,gait,0,Healthy Control,0.2929,0.0,0.0,0.0,0.2929
+gait_270,gait,0,Healthy Control,0.3511,0.0,0.0,0.0,0.3511
+gait_271,gait,0,Healthy Control,0.3231,0.0,0.0,0.0,0.3231
+gait_272,gait,1,Parkinson,0.4881,0.0,0.0,0.0,0.4881
+gait_273,gait,1,Parkinson,0.1537,0.0,0.0,0.0,0.1537
+gait_274,gait,1,Parkinson,0.6499,0.0,0.0,0.0,0.6499
+gait_275,gait,1,Parkinson,0.3033,0.0,0.0,0.0,0.3033
+gait_276,gait,1,Parkinson,0.3709,0.0,0.0,0.0,0.3709
+gait_277,gait,1,Parkinson,0.3309,0.0,0.0,0.0,0.3309
+gait_278,gait,1,Parkinson,0.2136,0.0,0.0,0.0,0.2136
+gait_279,gait,1,Parkinson,0.3085,0.0,0.0,0.0,0.3085
+gait_280,gait,1,Parkinson,0.3284,0.0,0.0,0.0,0.3284
+gait_281,gait,1,Parkinson,0.3188,0.0,0.0,0.0,0.3188
+gait_282,gait,1,Parkinson,0.3496,0.0,0.0,0.0,0.3496
+gait_283,gait,1,Parkinson,0.3047,0.0,0.0,0.0,0.3047
+gait_284,gait,1,Parkinson,0.4121,0.0,0.0,0.0,0.4121
+gait_285,gait,1,Parkinson,0.3555,0.0,0.0,0.0,0.3555
+gait_286,gait,1,Parkinson,0.3542,0.0,0.0,0.0,0.3542
+gait_287,gait,1,Parkinson,0.4055,0.0,0.0,0.0,0.4055
+gait_288,gait,1,Parkinson,0.3863,0.0,0.0,0.0,0.3863
+gait_289,gait,1,Parkinson,0.2946,0.0,0.0,0.0,0.2946
+gait_290,gait,1,Parkinson,0.2328,0.0,0.0,0.0,0.2328
+gait_291,gait,1,Parkinson,0.2717,0.0,0.0,0.0,0.2717
+gait_292,gait,1,Parkinson,0.3856,0.0,0.0,0.0,0.3856
+gait_293,gait,1,Parkinson,0.3762,0.0,0.0,0.0,0.3762
+gait_294,gait,1,Parkinson,0.3425,0.0,0.0,0.0,0.3425
+gait_295,gait,1,Parkinson,0.3499,0.0,0.0,0.0,0.3499
+gait_296,gait,1,Parkinson,0.3019,0.0,0.0,0.0,0.3019
+gait_297,gait,1,Parkinson,0.4095,0.0,0.0,0.0,0.4095
+gait_298,gait,1,Parkinson,0.3913,0.0,0.0,0.0,0.3913
+gait_299,gait,1,Parkinson,0.3551,0.0,0.0,0.0,0.3551
+gait_300,gait,1,Parkinson,0.2417,0.0,0.0,0.0,0.2417
+gait_301,gait,1,Parkinson,0.375,0.0,0.0,0.0,0.375
+gait_302,gait,1,Parkinson,0.3346,0.0,0.0,0.0,0.3346
+gait_303,gait,1,Parkinson,0.3373,0.0,0.0,0.0,0.3373
+gait_304,gait,1,Parkinson,0.3336,0.0,0.0,0.0,0.3336
+gait_305,gait,1,Parkinson,0.4262,0.0,0.0,0.0,0.4262
+gait_306,gait,1,Parkinson,0.3744,0.0,0.0,0.0,0.3744
+tremor_1,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_2,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_3,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_4,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_5,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_6,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_7,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_8,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_9,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_10,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_11,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_12,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_13,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_14,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_15,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_16,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_17,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_18,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_19,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_20,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_21,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_22,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_23,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_24,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_25,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_26,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_27,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_28,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_29,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_30,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_31,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_32,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_33,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_34,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_35,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_36,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_37,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_38,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_39,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_40,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_41,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_42,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_43,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_44,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_45,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_46,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_47,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_48,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_49,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_50,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_51,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_52,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_53,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_54,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_55,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_56,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_57,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_58,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_59,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_60,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_61,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_62,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_63,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_64,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_65,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_66,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_67,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_68,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_69,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_70,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_71,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_72,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_73,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_74,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_75,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_76,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_77,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_78,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_79,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_80,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_81,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_82,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_83,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_84,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_85,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_86,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_87,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_88,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_89,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_90,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_91,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_92,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_93,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_94,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_95,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_96,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_97,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_98,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_99,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_100,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_101,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_102,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_103,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_104,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_105,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_106,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_107,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_108,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_109,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_110,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_111,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_112,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_113,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_114,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_115,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_116,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_117,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_118,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_119,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_120,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_121,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_122,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_123,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_124,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_125,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_126,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_127,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_128,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_129,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_130,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_131,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_132,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_133,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_134,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_135,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_136,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_137,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_138,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_139,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_140,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_141,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_142,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_143,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_144,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_145,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_146,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_147,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_148,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_149,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_150,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_151,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_152,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_153,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_154,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_155,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_156,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_157,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_158,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_159,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_160,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_161,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_162,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_163,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_164,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_165,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_166,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_167,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_168,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_169,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_170,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_171,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_172,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_173,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_174,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_175,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_176,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_177,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_178,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_179,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_180,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_181,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_182,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_183,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_184,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_185,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_186,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_187,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_188,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_189,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_190,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_191,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_192,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_193,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_194,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_195,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_196,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_197,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_198,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_199,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_200,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_201,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_202,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_203,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_204,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_205,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_206,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_207,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_208,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_209,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_210,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_211,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_212,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_213,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_214,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_215,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_216,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_217,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_218,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_219,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_220,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_221,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_222,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_223,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_224,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_225,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_226,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_227,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_228,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_229,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_230,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_231,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_232,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_233,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_234,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_235,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_236,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_237,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_238,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_239,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_240,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_241,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_242,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_243,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_244,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_245,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_246,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_247,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_248,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_249,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_250,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_251,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_252,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_253,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_254,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_255,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_256,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_257,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_258,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_259,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_260,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_261,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_262,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_263,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_264,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_265,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_266,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_267,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_268,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_269,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_270,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_271,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_272,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_273,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_274,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_275,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_276,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_277,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_278,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_279,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_280,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_281,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_282,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_283,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_284,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_285,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_286,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_287,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_288,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_289,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_290,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_291,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_292,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_293,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_294,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_295,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_296,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_297,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_298,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_299,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_300,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_301,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_302,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_303,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_304,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_305,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_306,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_307,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_308,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_309,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_310,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_311,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_312,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_313,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_314,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_315,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_316,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_317,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_318,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_319,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_320,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_321,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_322,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_323,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_324,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_325,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_326,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_327,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_328,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_329,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_330,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_331,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_332,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_333,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_334,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_335,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_336,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_337,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_338,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_339,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_340,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_341,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_342,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_343,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_344,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_345,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_346,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_347,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_348,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_349,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_350,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_351,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_352,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_353,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_354,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_355,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_356,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_357,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_358,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_359,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_360,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_361,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_362,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_363,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_364,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_365,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_366,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_367,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_368,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_369,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_370,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_371,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_372,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_373,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_374,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_375,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_376,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_377,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_378,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_379,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_380,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_381,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_382,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_383,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_384,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_385,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_386,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_387,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_388,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_389,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_390,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_391,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_392,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_393,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_394,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_395,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_396,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_397,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_398,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_399,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_400,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_401,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_402,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_403,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_404,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_405,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_406,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_407,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_408,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_409,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_410,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_411,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_412,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_413,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_414,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_415,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_416,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_417,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_418,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_419,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_420,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_421,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_422,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_423,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_424,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_425,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_426,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_427,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_428,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_429,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_430,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_431,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_432,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_433,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_434,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_435,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_436,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_437,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_438,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_439,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_440,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_441,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_442,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_443,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_444,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_445,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_446,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_447,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_448,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_449,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_450,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_451,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_452,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_453,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_454,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_455,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_456,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_457,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_458,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_459,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_460,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_461,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_462,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_463,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_464,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_465,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_466,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_467,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_468,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_469,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_470,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_471,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_472,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_473,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_474,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_475,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_476,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_477,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_478,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_479,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_480,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_481,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_482,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_483,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_484,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_485,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_486,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_487,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_488,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_489,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_490,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_491,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_492,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_493,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_494,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_495,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_496,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_497,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_498,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_499,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_500,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_501,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_502,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_503,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_504,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_505,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_506,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_507,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_508,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_509,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_510,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_511,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_512,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_513,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_514,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_515,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_516,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_517,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_518,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_519,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_520,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_521,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_522,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_523,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_524,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_525,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_526,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_527,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_528,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_529,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_530,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_531,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_532,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_533,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_534,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_535,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_536,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_537,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_538,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_539,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_540,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_541,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_542,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_543,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_544,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_545,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_546,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_547,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_548,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_549,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_550,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_551,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_552,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_553,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_554,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_555,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_556,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_557,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_558,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_559,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_560,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_561,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_562,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_563,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_564,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_565,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_566,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_567,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_568,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_569,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_570,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_571,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_572,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_573,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_574,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_575,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_576,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_577,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_578,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_579,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_580,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_581,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_582,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_583,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_584,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_585,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_586,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_587,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_588,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_589,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_590,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_591,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_592,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_593,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_594,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_595,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_596,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_597,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_598,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_599,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_600,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_601,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_602,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_603,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_604,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_605,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_606,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_607,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_608,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_609,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_610,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_611,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_612,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_613,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_614,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_615,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_616,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_617,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_618,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_619,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_620,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_621,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_622,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_623,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_624,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_625,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_626,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_627,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_628,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_629,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_630,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_631,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_632,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_633,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_634,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_635,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_636,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_637,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_638,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_639,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_640,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_641,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_642,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_643,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_644,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_645,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_646,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_647,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_648,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_649,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_650,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_651,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_652,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_653,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_654,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_655,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_656,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_657,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_658,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_659,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_660,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_661,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_662,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_663,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_664,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_665,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_666,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_667,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_668,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_669,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_670,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_671,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_672,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_673,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_674,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_675,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_676,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_677,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_678,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_679,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_680,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_681,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_682,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_683,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_684,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_685,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_686,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_687,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_688,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_689,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_690,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_691,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_692,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_693,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_694,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_695,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_696,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_697,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_698,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_699,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_700,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_701,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_702,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_703,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_704,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_705,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_706,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_707,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_708,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_709,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_710,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_711,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_712,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_713,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_714,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_715,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_716,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_717,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_718,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_719,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_720,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_721,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_722,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_723,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_724,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_725,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_726,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_727,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_728,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_729,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_730,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_731,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_732,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_733,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_734,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_735,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_736,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_737,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_738,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_739,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_740,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_741,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_742,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_743,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_744,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_745,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_746,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_747,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_748,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_749,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_750,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_751,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_752,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_753,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_754,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_755,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_756,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_757,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_758,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_759,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_760,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_761,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_762,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_763,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_764,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_765,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_766,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_767,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_768,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_769,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_770,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_771,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_772,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_773,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_774,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_775,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_776,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_777,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_778,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_779,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_780,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_781,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_782,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_783,tremor,1,Parkinson,0.95,0.0,0.95,0.0,0.0
+tremor_784,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_785,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_786,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_787,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_788,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_789,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_790,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_791,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_792,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_793,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_794,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_795,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_796,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_797,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_798,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_799,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_800,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_801,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_802,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_803,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_804,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_805,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_806,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_807,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_808,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_809,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_810,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_811,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_812,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_813,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_814,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_815,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_816,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_817,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_818,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_819,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_820,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_821,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_822,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_823,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_824,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_825,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_826,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_827,tremor,1,Parkinson,0.25,0.0,0.25,0.0,0.0
+tremor_828,tremor,1,Parkinson,0.5,0.0,0.5,0.0,0.0
+tremor_829,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_830,tremor,1,Parkinson,0.75,0.0,0.75,0.0,0.0
+tremor_831,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_832,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+tremor_833,tremor,0,Healthy Control,0.05,0.0,0.05,0.0,0.0
+finger_1,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_2,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_3,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_4,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_5,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_6,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_7,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_8,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_9,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_10,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_11,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_12,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_13,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_14,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_15,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_16,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_17,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_18,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_19,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_20,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_21,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_22,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_23,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_24,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_25,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_26,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_27,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_28,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_29,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_30,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_31,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_32,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_33,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_34,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_35,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_36,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_37,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_38,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_39,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_40,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_41,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_42,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_43,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_44,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_45,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_46,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_47,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_48,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_49,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_50,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_51,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_52,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_53,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_54,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_55,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_56,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_57,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_58,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_59,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_60,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_61,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_62,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_63,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_64,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_65,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_66,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_67,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_68,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_69,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_70,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_71,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_72,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_73,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_74,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_75,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_76,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_77,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_78,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_79,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_80,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_81,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_82,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_83,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_84,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_85,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_86,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_87,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_88,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_89,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_90,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_91,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_92,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_93,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_94,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_95,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_96,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_97,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_98,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_99,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_100,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_101,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_102,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_103,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_104,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_105,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_106,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_107,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_108,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_109,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_110,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_111,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_112,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_113,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_114,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_115,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_116,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_117,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_118,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_119,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_120,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_121,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_122,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_123,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_124,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_125,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_126,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_127,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_128,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_129,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_130,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_131,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_132,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_133,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_134,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_135,finger,1,Parkinson,0.65,0.0,0.0,0.65,0.0
+finger_136,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_137,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_138,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_139,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_140,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_141,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_142,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_143,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_144,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_145,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_146,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_147,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_148,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_149,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_150,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_151,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_152,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_153,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_154,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_155,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_156,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_157,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_158,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_159,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_160,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_161,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_162,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_163,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_164,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_165,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_166,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_167,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_168,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_169,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_170,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_171,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_172,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_173,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_174,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_175,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_176,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_177,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_178,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_179,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0
+finger_180,finger,0,Healthy Control,0.15,0.0,0.0,0.15,0.0

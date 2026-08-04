@@ -1,10 +1,13 @@
 package io.ionic.starter;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
-import android.webkit.PermissionRequest;
+import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
+import android.webkit.PermissionRequest;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import com.getcapacitor.BridgeActivity;
@@ -12,27 +15,24 @@ import com.getcapacitor.BridgeActivity;
 public class MainActivity extends BridgeActivity {
 
     private static final int PERMISSION_REQUEST_CODE = 1001;
+    private static final int FILECHOOSER_RESULTCODE = 2001;
     private PermissionRequest pendingWebViewRequest;
+    private ValueCallback<Uri[]> filePathCallback;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         registerPlugin(NativeMicPlugin.class);
         super.onCreate(savedInstanceState);
 
-        // ── (fallback เดิม) ตั้งค่า WebChromeClient ให้รองรับ getUserMedia ──
-        // เก็บไว้เผื่อ WebView บางเครื่องรองรับ แต่ตอนนี้แอปใช้ NativeMicPlugin
-        // (AudioRecord) เป็นทางหลักแล้ว ไม่ต้องพึ่งพา getUserMedia() อีกต่อไป
+        // ── WebChromeClient รองรับทั้ง Microphone Permission และ File Picker Chooser ──
         this.bridge.getWebView().setWebChromeClient(new WebChromeClient() {
             @Override
             public void onPermissionRequest(final PermissionRequest request) {
                 runOnUiThread(() -> {
-                    // เช็คว่า Android permission RECORD_AUDIO ได้รับอนุญาตแล้วหรือยัง
                     if (ContextCompat.checkSelfPermission(MainActivity.this,
                             Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
-                        // อนุญาตให้ WebView เข้าถึงไมโครโฟนได้เลย
                         request.grant(request.getResources());
                     } else {
-                        // ยังไม่ได้รับอนุญาต ขอ Android permission ก่อน
                         pendingWebViewRequest = request;
                         ActivityCompat.requestPermissions(
                                 MainActivity.this,
@@ -42,7 +42,50 @@ public class MainActivity extends BridgeActivity {
                     }
                 });
             }
+
+            @Override
+            public boolean onShowFileChooser(android.webkit.WebView webView, ValueCallback<Uri[]> filePathCallback, FileChooserParams fileChooserParams) {
+                if (MainActivity.this.filePathCallback != null) {
+                    MainActivity.this.filePathCallback.onReceiveValue(null);
+                }
+                MainActivity.this.filePathCallback = filePathCallback;
+
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                intent.setType("*/*");
+
+                try {
+                    startActivityForResult(Intent.createChooser(intent, "เลือกไฟล์ชุดข้อมูล"), FILECHOOSER_RESULTCODE);
+                } catch (Exception e) {
+                    MainActivity.this.filePathCallback = null;
+                    return false;
+                }
+                return true;
+            }
         });
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == FILECHOOSER_RESULTCODE) {
+            if (filePathCallback == null) return;
+            Uri[] results = null;
+            if (resultCode == RESULT_OK && data != null) {
+                String dataString = data.getDataString();
+                if (dataString != null) {
+                    results = new Uri[]{Uri.parse(dataString)};
+                } else if (data.getClipData() != null) {
+                    int count = data.getClipData().getItemCount();
+                    results = new Uri[count];
+                    for (int i = 0; i < count; i++) {
+                        results[i] = data.getClipData().getItemAt(i).getUri();
+                    }
+                }
+            }
+            filePathCallback.onReceiveValue(results);
+            filePathCallback = null;
+        }
     }
 
     @Override
