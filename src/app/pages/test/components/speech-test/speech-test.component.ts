@@ -268,13 +268,22 @@ export class SpeechTestComponent implements OnDestroy {
     const avgSpeechRate = parseFloat((recorded.reduce((s: number, d: any) => s + d.speechRate, 0) / 3).toFixed(1));
 
     const totalQuality = (avgConsistency + avgPitchStability) / 2;
-    // Maximum Precision Mapping:
-    // Quality >= 75 -> Risk = 0.0 (ไม่มีอาการ / ปกติ)
-    // Quality 60-74 -> Risk = 0.20 - 0.38 (เล็กน้อย)
-    // Quality < 60  -> Risk >= 0.45 (ปานกลาง / ค่อนข้างมาก / พบความเสี่ยง)
-    const riskScore = totalQuality >= 75
-      ? 0.0
-      : Math.min(1.0, Math.max(0.20, (75.0 - totalQuality) / 40.0 + 0.20));
+    
+    // MDS-UPDRS Item 3.1 Speech 5-Level Rating Scale
+    let itemLevel = 0;
+    if (totalQuality < 30) {
+      itemLevel = 4; // Severe: Barely understandable
+    } else if (totalQuality < 45) {
+      itemLevel = 3; // Moderate: Frequently difficult to understand
+    } else if (totalQuality < 60) {
+      itemLevel = 2; // Mild: Monotone, slurred speech
+    } else if (totalQuality < 75) {
+      itemLevel = 1; // Slight: Slight loss of expression/volume
+    } else {
+      itemLevel = 0; // Normal: Clear speech
+    }
+
+    const riskScore = itemLevel / 4.0;
 
     this.speechResults.set({
       consistency: avgConsistency,

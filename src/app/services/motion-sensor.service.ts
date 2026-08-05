@@ -591,18 +591,19 @@ export class MotionSensorService {
       const sd = Math.sqrt(strideTimes.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / strideTimes.length);
       cv = (sd / mean) * 100;
     }
+    const cvRisk = Math.min(1.0, Math.max(0.0, (cv - 12.0) / 25.0));
 
-    // 2. Freezing of Gait / Pauses (gaps > 2.0s between steps)
+    // 2. Freezing of Gait / Pauses (gaps > 1.8s between steps)
     let pauseCount = 0;
     for (let i = 1; i < peaks.length; i++) {
       const gap = data[peaks[i]].t - data[peaks[i - 1]].t;
-      if (gap > 2000) {
+      if (gap > 1800) {
         pauseCount++;
       }
     }
-    const pauseRisk = Math.min(1.0, pauseCount * 0.25);
+    const pauseRisk = Math.min(1.0, pauseCount * 0.35);
 
-    // 3. Consecutive Stride Asymmetry (long step vs short step ratio)
+    // 3. Consecutive Stride Asymmetry (การเดินก้าวไม่เท่ากัน / จังหวะไม่สม่ำเสมอ)
     let ratioDev = 0;
     if (strideTimes.length >= 2) {
       let ratioSum = 0;
@@ -612,15 +613,23 @@ export class MotionSensorService {
       }
       ratioDev = ratioSum / (strideTimes.length - 1);
     }
-    const asymmetryRisk = Math.min(1.0, ratioDev * 1.0);
+    const asymmetryRisk = Math.min(1.0, ratioDev * 2.5);
 
-    // 4. Low impact shuffling / Dragging feet (mean dynamic acceleration < 0.4 m/s^2)
+    // 4. Lateral Sway Instability (ความเซเอียงซ้ายเอียงขวาจากการเดินไม่สมดุล)
+    const meanXVal = data.reduce((s, d) => s + d.ax, 0) / data.length;
+    const swayX = Math.sqrt(data.reduce((s, d) => s + Math.pow(d.ax - meanXVal, 2), 0) / data.length);
+    const swayRisk = Math.min(1.0, Math.max(0.0, (swayX - 1.2) / 3.0));
+
+    // 5. Low impact shuffling / Dragging feet (mean dynamic acceleration < 0.35 m/s^2)
     const shufflingRisk = meanDyn < 0.35 ? Math.min(1.0, (0.35 - meanDyn) / 0.3) : 0;
 
     // Combined Gait Risk Score according to MDS-UPDRS Item 3.10
-    const cvRisk = Math.min(1.0, Math.max(0.0, (cv - 22.0) / 35.0));
-
-    const riskScore = Math.min(1.0, Math.max(0.0, cvRisk * 0.4 + pauseRisk * 0.3 + asymmetryRisk * 0.2 + shufflingRisk * 0.1));
+    const riskScore = Math.min(1.0, Math.max(0.0, 
+      cvRisk * 0.35 + 
+      asymmetryRisk * 0.30 + 
+      swayRisk * 0.25 + 
+      pauseRisk * 0.10
+    ));
     const totalScore = Math.round(100 - riskScore * 100);
 
     const meanStrideTimeMs = strideTimes.length > 0 ? strideTimes.reduce((a, b) => a + b, 0) / strideTimes.length : 800;

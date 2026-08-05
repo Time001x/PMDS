@@ -243,10 +243,27 @@ export class FingerTapTestComponent implements OnDestroy {
       makeItem('จำนวนครั้งที่ตอบสนอง', (lTotal || 0) + ' ครั้ง', Math.min(100, ((lTotal || 0) / 45) * 100), '#EB661E')
     ];
 
-    const totalScore = Math.round((rQuality + lQuality) / 2);
+    // MDS-UPDRS Item 3.4 Finger Tapping 5-Level Rating Scale
+    const avgTapsPerHand = (rTotal + lTotal) / 2;
+    const avgAccuracy = overallAccuracy;
+
+    let itemLevel = 0;
+    if (avgTapsPerHand < 8 || avgAccuracy < 40) {
+      itemLevel = 4; // Severe: Barely able to perform
+    } else if (avgTapsPerHand < 13 || avgAccuracy < 55) {
+      itemLevel = 3; // Moderate: Frequent arrests/hesitations
+    } else if (avgTapsPerHand < 18 || avgAccuracy < 70) {
+      itemLevel = 2; // Mild: Moderate slowing or interruptions
+    } else if (avgTapsPerHand < 23 || avgAccuracy < 85) {
+      itemLevel = 1; // Slight: Slight slowing or slight amplitude decay
+    } else {
+      itemLevel = 0; // Normal: Fast, regular tapping
+    }
+
+    const totalScore = Math.round(100 - (itemLevel / 4.0) * 100);
     this.fingerResults.set({ right: rightItems, left: leftItems, totalScore });
 
-    const riskScore = Math.min(1.0, Math.max(0.0, (85.0 - totalScore) / 60.0));
+    const riskScore = itemLevel / 4.0;
     this.testCompleted.emit(riskScore);
   }
 

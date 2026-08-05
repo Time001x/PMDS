@@ -161,9 +161,9 @@
                 <div class="hc-test-item" *ngFor="let test of getTestList()">
                   <span class="hc-test-name">{{ test.icon }} {{ test.name }}</span>
                   <div class="hc-test-bar-bg">
-                    <div class="hc-test-bar" [style.width.%]="Math.round((h.scores[test.id] || 0) * 100)" [style.background]="(h.scores[test.id] || 0) > 0.6 ? '#C10508' : (h.scores[test.id] || 0) > 0.35 ? '#F59E0B' : '#05C134'"></div>
+                    <div class="hc-test-bar" [style.width.%]="getItemLevel(h.scores[test.id] || 0) * 25" [style.background]="getRiskColor(h.scores[test.id] || 0)"></div>
                   </div>
-                  <span class="hc-test-score" [style.color]="(h.scores[test.id] || 0) > 0.6 ? '#C10508' : (h.scores[test.id] || 0) > 0.35 ? '#F59E0B' : '#05C134'">{{ h.scores[test.id] !== undefined ? getRiskLevel(Math.round((h.scores[test.id] || 0) * 100)) : '-' }}</span>
+                  <span class="hc-test-score" [style.color]="getRiskColor(h.scores[test.id] || 0)">{{ h.scores[test.id] !== undefined ? getRiskLevel(h.scores[test.id]) : '-' }}</span>
                 </div>
               </div>
             </div>
