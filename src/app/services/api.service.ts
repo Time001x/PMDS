@@ -3,6 +3,7 @@ import { Capacitor, CapacitorHttp } from '@capacitor/core';
 
 // Candidate AI URLs for real phone, emulator & localhost (10.0.2.2 is Android emulator host loopback)
 const CANDIDATE_URLS = [
+  'https://pmds-iz71.onrender.com',
   'http://10.0.2.2:8000',
   'http://192.168.0.102:8000',
   'http://localhost:8000',
