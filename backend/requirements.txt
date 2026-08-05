@@ -9,3 +9,6 @@ bcrypt
 cryptography
 pyjwt
 pydantic
+lightgbm
+xgboost
+catboost
