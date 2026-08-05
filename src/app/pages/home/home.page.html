@@ -54,7 +54,7 @@
             <div class="history-date">{{ h.date }}</div>
             <div class="history-score" [style.color]="h.isRisk ? '#C10508' : '#05C134'">{{ h.riskLevel }}</div>
           </div>
-          <span class="badge" [class.badge-risk]="h.isRisk" [class.badge-normal]="!h.isRisk" style="font-size:12px">{{ h.riskPercent }}%</span>
+          <span class="badge" [class.badge-risk]="h.isRisk" [class.badge-normal]="!h.isRisk" style="font-size:12px">ระดับ {{ getItemLevel(h.riskPercent || h.levelNumber || 0) }}</span>
         </div>
         <div *ngIf="recentHistory.length === 0" class="text-center text-muted small" style="padding:24px 0;color:#888">
           ยังไม่มีประวัติการทดสอบ<br>เริ่มการทดสอบได้เลย 👆

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DbService } from '../../services/db.service';
 import { TestConfigService } from '../../services/test-config.service';
-import { getRiskLevel, getRiskColor } from '../../services/api.service';
+import { getRiskLevel, getRiskColor, getItemLevel } from '../../services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -24,6 +24,7 @@ export class HomePage implements OnInit {
 
   getRiskLevel = getRiskLevel;
   getRiskColor = getRiskColor;
+  getItemLevel = getItemLevel;
 
   constructor(
     private db: DbService,

@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Capacitor, CapacitorHttp } from '@capacitor/core';
 
-// Candidate AI URLs for real phone, emulator & localhost
+// Candidate AI URLs for real phone, emulator & localhost (10.0.2.2 is Android emulator host loopback)
 const CANDIDATE_URLS = [
+  'http://10.0.2.2:8000',
   'http://192.168.0.102:8000',
-  'http://192.168.0.103:8000',
+  'http://localhost:8000',
+  'http://127.0.0.1:8000',
   'http://192.168.0.100:8000',
   'http://192.168.0.101:8000',
-  'http://192.168.0.104:8000',
-  'http://192.168.0.105:8000',
-  'http://10.0.2.2:8000',
-  'http://localhost:8000',
-  'http://127.0.0.1:8000'
+  'http://192.168.0.103:8000',
+  'http://192.168.0.104:8000'
 ];
 
 export interface PredictPayload {
@@ -34,30 +33,52 @@ export interface PredictPayload {
 
 export interface PredictResult {
   uid: string;
-  riskScore: number;
-  riskPercent: number;
+  level: number; // 0, 1, 2, 3, 4 MDS-UPDRS Scale
+  riskScore?: number;
+  riskPercent?: number;
   diagnosis: string;
   label: string;
   color: string;
+  description: string;
   confidence: number;
 }
 
 export type RiskLevel = 'ไม่มีอาการ' | 'เล็กน้อย' | 'เสี่ยงปานกลาง' | 'เสี่ยงมาก' | 'อาการรุนแรง';
 
-export function getRiskLevel(percent: number): string {
-  if (percent < 20) return 'ไม่มีอาการ';
-  if (percent < 40) return 'เล็กน้อย';
-  if (percent < 60) return 'เสี่ยงปานกลาง';
-  if (percent < 80) return 'เสี่ยงมาก';
-  return 'อาการรุนแรง';
+export function getRiskLevelInfo(level: number) {
+  const lvl = Math.max(0, Math.min(4, Math.round(level)));
+  switch (lvl) {
+    case 0: return { level: 0, label: 'ไม่มีอาการ', color: '#05C134', desc: 'ปกติ สมบูรณ์ ไม่มีอาการแสดงของโรคพาร์กินสัน' };
+    case 1: return { level: 1, label: 'เล็กน้อย', color: '#10B981', desc: 'มีความผิดปกติเพียงเล็กน้อย ไม่กระทบต่อการดำเนินชีวิต' };
+    case 2: return { level: 2, label: 'เสี่ยงปานกลาง', color: '#F59E0B', desc: 'มีอาการชัดเจนขึ้น เริ่มส่งผลกระทบต่อบางกิจกรรม' };
+    case 3: return { level: 3, label: 'เสี่ยงมาก', color: '#F97316', desc: 'มีอาการชัดเจน รบกวนการทำกิจกรรมประจำวันอย่างมาก' };
+    case 4: return { level: 4, label: 'อาการรุนแรง', color: '#C10508', desc: 'มีอาการรุนแรงมาก ไม่สามารถพึ่งพาตนเองได้' };
+    default: return { level: 0, label: 'ไม่มีอาการ', color: '#05C134', desc: 'ปกติ สมบูรณ์ ไม่มีอาการแสดงของโรคพาร์กินสัน' };
+  }
 }
 
-export function getRiskColor(percent: number): string {
-  if (percent < 20) return '#05C134'; // ไม่มีอาการ (สีเขียว)
-  if (percent < 40) return '#10B981'; // เล็กน้อย (สีเขียว)
-  if (percent < 60) return '#F59E0B'; // เสี่ยงปานกลาง (สีเหลือง)
-  if (percent < 80) return '#F97316'; // เสี่ยงมาก (สีส้ม)
-  return '#C10508';                 // อาการรุนแรง (สีแดง)
+export function getItemLevel(score: number): number {
+  if (score <= 0) return 0;
+  if (score > 4) {
+    // If percentage (0 - 100)
+    return score >= 80 ? 4 : score >= 60 ? 3 : score >= 40 ? 2 : score >= 20 ? 1 : 0;
+  }
+  if (score > 1.0) {
+    // If integer 2, 3, 4
+    return Math.min(4, Math.round(score));
+  }
+  // If float ratio (0.0 to 1.0) e.g. questionnaire or sensor risk ratio
+  return score >= 0.80 ? 4 : score >= 0.60 ? 3 : score >= 0.40 ? 2 : score >= 0.20 ? 1 : 0;
+}
+
+export function getRiskLevel(scoreOrPercent: number): string {
+  const lvl = getItemLevel(scoreOrPercent);
+  return getRiskLevelInfo(lvl).label;
+}
+
+export function getRiskColor(scoreOrPercent: number): string {
+  const lvl = getItemLevel(scoreOrPercent);
+  return getRiskLevelInfo(lvl).color;
 }
 
 @Injectable({
@@ -66,27 +87,45 @@ export function getRiskColor(percent: number): string {
 export class ApiService {
   private activeUrl: string | null = null;
 
-  // ── เช็คว่า API ทำงานอยู่ไหม ──────────────────────────────
+  constructor() {}
+
+  // ── เช็คความพร้อมของ Backend ──────────────────────────────
   async checkHealth(): Promise<boolean> {
+    if (this.activeUrl) {
+      try {
+        if (Capacitor.isNativePlatform()) {
+          const res = await CapacitorHttp.get({ url: `${this.activeUrl}/health`, connectTimeout: 1500 });
+          if (res.status === 200) return true;
+        } else {
+          const res = await fetch(`${this.activeUrl}/health`);
+          if (res.ok) return true;
+        }
+      } catch (_e) {
+        this.activeUrl = null;
+      }
+    }
+
     for (const baseUrl of CANDIDATE_URLS) {
       try {
         if (Capacitor.isNativePlatform()) {
           const response = await CapacitorHttp.get({
             url: `${baseUrl}/health`,
-            connectTimeout: 2000
+            connectTimeout: 1500
           });
-          if (response.status === 200 && (response.data?.model_ready === true || response.data?.status === 'ok')) {
+          if (response.status === 200) {
             this.activeUrl = baseUrl;
+            console.log('[ApiService] Found active backend server at:', baseUrl);
             return true;
           }
         } else {
-          const res = await fetch(`${baseUrl}/health`, { method: 'GET' });
+          const controller = new AbortController();
+          const tid = setTimeout(() => controller.abort(), 1500);
+          const res = await fetch(`${baseUrl}/health`, { signal: controller.signal });
+          clearTimeout(tid);
           if (res.ok) {
-            const data = await res.json();
-            if (data.model_ready === true || data.status === 'ok') {
-              this.activeUrl = baseUrl;
-              return true;
-            }
+            this.activeUrl = baseUrl;
+            console.log('[ApiService] Found active backend server at:', baseUrl);
+            return true;
           }
         }
       } catch (_e) {
@@ -101,27 +140,21 @@ export class ApiService {
   async predict(payload: PredictPayload): Promise<PredictResult> {
     let lastError: any = null;
 
-    const urlsToTry = this.activeUrl ? [this.activeUrl, ...CANDIDATE_URLS.filter(u => u !== this.activeUrl)] : CANDIDATE_URLS;
+    // Fast discover active URL if not set
+    if (!this.activeUrl) {
+      await this.checkHealth();
+    }
+
+    const urlsToTry = this.activeUrl
+      ? [this.activeUrl, ...CANDIDATE_URLS.filter(u => u !== this.activeUrl)]
+      : CANDIDATE_URLS;
 
     for (const baseUrl of urlsToTry) {
       try {
-        console.log('[ApiService] Calling predict at:', `${baseUrl}/predict`, 'isNative:', Capacitor.isNativePlatform());
+        console.log('[ApiService] Trying predict at:', `${baseUrl}/predict`);
 
-        if (Capacitor.isNativePlatform()) {
-          const response = await CapacitorHttp.post({
-            url: `${baseUrl}/predict`,
-            headers: { 'Content-Type': 'application/json' },
-            data: payload,
-            connectTimeout: 5000
-          });
-
-          if (response.status === 200) {
-            this.activeUrl = baseUrl;
-            return response.data as PredictResult;
-          } else {
-            lastError = `Status ${response.status}`;
-          }
-        } else {
+        // 1. Try standard fetch first (works reliably on both web and Android WebView)
+        try {
           const controller = new AbortController();
           const timeoutId = setTimeout(() => controller.abort(), 4000);
 
@@ -134,8 +167,29 @@ export class ApiService {
           clearTimeout(timeoutId);
 
           if (res.ok) {
+            const data = await res.json();
             this.activeUrl = baseUrl;
-            return await res.json();
+            return data as PredictResult;
+          }
+        } catch (fetchErr) {
+          console.warn(`[ApiService] fetch failed for ${baseUrl}, trying CapacitorHttp...`, fetchErr);
+        }
+
+        // 2. Try CapacitorHttp native plugin if fetch failed on Native Platform
+        if (Capacitor.isNativePlatform()) {
+          const response = await CapacitorHttp.post({
+            url: `${baseUrl}/predict`,
+            headers: { 'Content-Type': 'application/json' },
+            data: payload,
+            connectTimeout: 4000
+          });
+
+          if (response.status === 200) {
+            this.activeUrl = baseUrl;
+            const parsedData = typeof response.data === 'string' ? JSON.parse(response.data) : response.data;
+            return parsedData as PredictResult;
+          } else {
+            lastError = `Status ${response.status}`;
           }
         }
       } catch (err: any) {
@@ -146,6 +200,52 @@ export class ApiService {
 
     this.activeUrl = null;
     throw new Error(`API connection failed: ${lastError || 'Could not reach server'}`);
+  }
+
+  // ── สมัครสมาชิกไปยัง Backend ──────────────────────────────
+  async registerUserOnBackend(username: string, fullName: string, email: string, password_raw: string): Promise<any> {
+    if (!this.activeUrl) {
+      await this.checkHealth();
+    }
+    const urlsToTry = this.activeUrl ? [this.activeUrl, ...CANDIDATE_URLS.filter(u => u !== this.activeUrl)] : CANDIDATE_URLS;
+    const body = { username: username || email, password: password_raw, fullName: fullName, email: email };
+
+    for (const baseUrl of urlsToTry) {
+      try {
+        console.log('[ApiService] Registering user at:', `${baseUrl}/auth/register`);
+        try {
+          const controller = new AbortController();
+          const tid = setTimeout(() => controller.abort(), 3000);
+          const res = await fetch(`${baseUrl}/auth/register`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body),
+            signal: controller.signal
+          });
+          clearTimeout(tid);
+          if (res.ok || res.status === 400) {
+            this.activeUrl = baseUrl;
+            return await res.json();
+          }
+        } catch (_fetchErr) {}
+
+        if (Capacitor.isNativePlatform()) {
+          const res = await CapacitorHttp.post({
+            url: `${baseUrl}/auth/register`,
+            headers: { 'Content-Type': 'application/json' },
+            data: body,
+            connectTimeout: 3000
+          });
+          if (res.status === 200 || res.status === 400) {
+            this.activeUrl = baseUrl;
+            return typeof res.data === 'string' ? JSON.parse(res.data) : res.data;
+          }
+        }
+      } catch (err) {
+        console.warn(`[ApiService] Register failed for ${baseUrl}:`, err);
+      }
+    }
+    return null;
   }
 
   // ── แปลงค่าจากแอปให้เป็น payload ที่ API รับได้ ────────────

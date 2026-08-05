@@ -132,13 +132,13 @@
               <div class="hs-label">ครั้งที่ทดสอบ</div>
             </div>
             <div class="hs-item">
-              <div class="hs-icon" [class]="historySummary.latest >= 50 ? '⚠️' : '✅'">{{ historySummary.latest >= 50 ? '⚠️' : '✅' }}</div>
+              <div class="hs-icon" [class]="historySummary.latest >= 2 ? '⚠️' : '✅'">{{ historySummary.latest >= 2 ? '⚠️' : '✅' }}</div>
               <div class="hs-val" [style.color]="getRiskColor(historySummary.latest)">{{ getRiskLevel(historySummary.latest) }}</div>
               <div class="hs-label">ล่าสุด</div>
             </div>
             <div class="hs-item">
               <div class="hs-icon">📈</div>
-              <div class="hs-val">{{ historySummary.avg }}%</div>
+              <div class="hs-val" [style.color]="getRiskColor(historySummary.avg)">ระดับ {{ historySummary.avg }}</div>
               <div class="hs-label">เฉลี่ย</div>
             </div>
           </div>
@@ -153,7 +153,7 @@
                 </div>
                 <div class="hc-score-wrap">
                   <div class="hc-score" [style.color]="getRiskColor(h.riskPercent)">{{ getRiskLevel(h.riskPercent) }}</div>
-                  <div class="hc-level" [style.background]="'rgba(' + getRiskColor(h.riskPercent).substring(1) + ', 0.1)'" [style.color]="getRiskColor(h.riskPercent)">{{ h.riskPercent }}%</div>
+                  <div class="hc-level" [style.background]="'rgba(' + getRiskColor(h.riskPercent).substring(1) + ', 0.1)'" [style.color]="getRiskColor(h.riskPercent)">ระดับ {{ getItemLevel(h.riskPercent || h.levelNumber || 0) }}</div>
                 </div>
               </div>
               <div class="hc-divider"></div>
@@ -182,30 +182,29 @@
                 [attr.stroke-dasharray]="getRingDashArray()" stroke-linecap="round" style="transition:stroke-dasharray 1s ease"/>
             </svg>
             <div class="result-ring-val">
-              <div class="result-percent" [style.color]="resultColor">{{ resultRingPercent }}</div>
-              <div class="result-label">%</div>
+              <div class="result-percent" [style.color]="resultColor">{{ resultLevelNumber }}</div>
+              <div class="result-label">ระดับ (0-4)</div>
             </div>
           </div>
           <div class="result-title" [style.color]="resultColor">{{ resultRiskLevel }}</div>
-          <div class="result-subtitle">ความเสี่ยงโรคพาร์กินสันโดยรวม</div>
+          <div class="result-subtitle" style="font-size: 13px; color: #555; margin-top: 4px; font-weight: 500;">{{ resultDescription }}</div>
         </div>
 
         <div class="result-breakdown">
-          <div class="section-title mb-16">📋 ผลแยกตามมิติ</div>
+          <div class="section-title mb-16">📋 ผลประเมินระดับตามมิติ (MDS-UPDRS)</div>
           <div class="breakdown-item" *ngFor="let s of resultScores">
             <div class="breakdown-icon">{{ s.icon }}</div>
             <div class="breakdown-info">
               <div class="breakdown-name">{{ s.name }}</div>
-              <div class="risk-bar-track" style="margin-top:6px"><div class="risk-bar-fill" [style.width.%]="s.score" [style.background]="s.color"></div></div>
+              <div class="risk-bar-track" style="margin-top:6px"><div class="risk-bar-fill" [style.width.%]="s.level * 25" [style.background]="s.color"></div></div>
             </div>
-            <div class="breakdown-score" [style.color]="s.color">{{ getRiskLevel(s.score) }}</div>
+            <div class="breakdown-score" [style.color]="s.color">ระดับ {{ s.level }} ({{ s.label }})</div>
           </div>
         </div>
 
         <div class="result-note">
-          <strong>⚠️ คำเตือนสำคัญ:</strong> ผลการประเมินนี้เป็น<strong>เพียงการคัดกรองเบื้องต้น</strong>เท่านั้น
-          ไม่สามารถใช้แทนการวินิจฉัยโดยแพทย์ผู้เชี่ยวชาญได้
-          <ng-container *ngIf="resultRingPercent >= 50"><br><br><strong>💡 แนะนำ:</strong> ควรพบแพทย์ผู้เชี่ยวชาญด้านระบบประสาทเพื่อรับการตรวจวินิจฉัยอย่างละเอียด</ng-container>
+          <strong>⚠️ คำเตือนสำคัญ:</strong> ผลการประเมินนี้เป็น<strong>เพียงการคัดกรองเบื้องต้น</strong>ตามมาตรฐาน MDS-UPDRS เท่านั้น
+          <ng-container *ngIf="resultLevelNumber >= 2"><br><br><strong>💡 แนะนำ:</strong> ควรพบแพทย์ผู้เชี่ยวชาญด้านระบบประสาทเพื่อรับการตรวจวินิจฉัยอย่างละเอียด</ng-container>
         </div>
 
         <div class="result-actions">

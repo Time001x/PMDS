@@ -67,56 +67,69 @@ def load_models():
         else:
             print(f"[PMDS AI Backend] Model file not found for '{modality}': {model_path}")
 
+from database import DatabaseService, SessionLocal
+from security import SecurityService
+
 # ── Schemas ───────────────────────────────────────────────────────────────────
+class RegisterPayload(BaseModel):
+    username: str
+    password: str
+    fullName: Optional[str] = ""
+    email: Optional[str] = ""
+
+class LoginPayload(BaseModel):
+    username: str
+    password: str
+
+class AuthResult(BaseModel):
+    status: str
+    message: str
+    token: Optional[str] = None
+    userId: Optional[str] = None
+    username: Optional[str] = None
+    fullName: Optional[str] = None
+
 class PredictPayload(BaseModel):
     uid: Optional[str] = "demo_user"
-    SpeechProblems: float = 0
-    Tremor: float = 0
-    PosturalInstability: float = 0
-    Bradykinesia: float = 0
-    UPDRS: float = 0
-    Rigidity: float = 0
-    MoCA: float = 26
-    FunctionalAssessment: float = 100
-    Age: float = 60
-    speechScore: Optional[float] = 0
-    tremorScore: Optional[float] = 0
-    fingerScore: Optional[float] = 0
-    gaitScore: Optional[float] = 0
-    questionnaireScore: Optional[float] = 0
+    SpeechProblems: Optional[float] = 0.0
+    Tremor: Optional[float] = 0.0
+    PosturalInstability: Optional[float] = 0.0
+    Bradykinesia: Optional[float] = 0.0
+    UPDRS: Optional[float] = 0.0
+    Rigidity: Optional[float] = 0.0
+    MoCA: Optional[float] = 26.0
+    FunctionalAssessment: Optional[float] = 100.0
+    Age: Optional[float] = 60.0
+    speechScore: Optional[float] = 0.0
+    tremorScore: Optional[float] = 0.0
+    fingerScore: Optional[float] = 0.0
+    gaitScore: Optional[float] = 0.0
+    questionnaireScore: Optional[float] = 0.0
 
 class PredictResult(BaseModel):
-    uid: str
-    riskScore: float
-    riskPercent: int
-    diagnosis: str
-    label: str
-    color: str
-    confidence: float
+    uid: Optional[str] = "demo_user"
+    level: int = 0  # 0, 1, 2, 3, 4 MDS-UPDRS Scale
+    riskScore: Optional[float] = 0.0
+    riskPercent: Optional[int] = 0
+    diagnosis: str = "ไม่มีอาการ"
+    label: str = "ไม่มีอาการ"
+    color: str = "#05C134"
+    description: Optional[str] = ""
+    confidence: float = 0.95
     details: Optional[Dict[str, float]] = None
 
-def get_risk_level_info(val: float, modal_risks: list = None):
-    # MDS-UPDRS Official Rating Scale (0 to 4 Scale)
-    if modal_risks is not None and len(modal_risks) >= 5:
-        normal_count = sum(1 for r in modal_risks if r < 0.35)
-        high_risk_count = sum(1 for r in modal_risks if r >= 0.50)
+MDS_UPDRS_SCALE = {
+    0: {"english": "Normal", "label": "ไม่มีอาการ", "color": "#05C134", "description": "ปกติ สมบูรณ์ ไม่มีอาการแสดงของโรคพาร์กินสัน"},
+    1: {"english": "Slight", "label": "เล็กน้อย", "color": "#10B981", "description": "มีความผิดปกติเพียงเล็กน้อย ไม่กระทบต่อการดำเนินชีวิต"},
+    2: {"english": "Mild", "label": "เสี่ยงปานกลาง", "color": "#F59E0B", "description": "มีอาการชัดเจนขึ้น เริ่มส่งผลกระทบต่อบางกิจกรรม"},
+    3: {"english": "Moderate", "label": "เสี่ยงมาก", "color": "#F97316", "description": "มีอาการชัดเจน รบกวนการทำกิจกรรมประจำวันอย่างมาก"},
+    4: {"english": "Severe", "label": "อาการรุนแรง", "color": "#C10508", "description": "มีอาการรุนแรงมาก ไม่สามารถพึ่งพาตนเองได้"}
+}
 
-        if normal_count >= 3:
-            return "ไม่มีอาการ", "ไม่มีอาการ", "#05C134"
-        elif high_risk_count >= 3:
-            return "เสี่ยงมาก", "เสี่ยงมาก", "#F97316"
-
-    norm = val / 100.0 if val > 1.0 else val
-    if norm >= 0.80:
-        return "อาการรุนแรง", "อาการรุนแรง", "#C10508"
-    elif norm >= 0.60:
-        return "เสี่ยงมาก", "เสี่ยงมาก", "#F97316"
-    elif norm >= 0.40:
-        return "เสี่ยงปานกลาง", "เสี่ยงปานกลาง", "#F59E0B"
-    elif norm >= 0.20:
-        return "เล็กน้อย", "เล็กน้อย", "#10B981"
-    else:
-        return "ไม่มีอาการ", "ไม่มีอาการ", "#05C134"
+def get_risk_level_info(level: int):
+    level_int = max(0, min(4, int(round(level))))
+    info = MDS_UPDRS_SCALE[level_int]
+    return info["label"], info["label"], info["color"], info["description"], level_int
 
 def predict_modality(modality: str, feature_dict: Dict[str, float]) -> float:
     if modality not in MODELS:
@@ -146,6 +159,54 @@ def predict_modality(modality: str, feature_dict: Dict[str, float]) -> float:
         return 0.0
 
 # ── Endpoints ─────────────────────────────────────────────────────────────────
+# ── Authentication Endpoints (Encrypted Data & Bcrypt Passwords) ─────────────
+@app.post("/auth/register", response_model=AuthResult)
+def register_user(payload: RegisterPayload):
+    db = SessionLocal()
+    try:
+        res = DatabaseService.register_user(
+            db=db,
+            username=payload.username,
+            password_raw=payload.password,
+            full_name=payload.fullName or "",
+            email=payload.email or ""
+        )
+        token = SecurityService.create_jwt_token({"sub": res["user_id"], "username": res["username"]})
+        return AuthResult(
+            status="ok",
+            message="User registered successfully with AES-256 encryption",
+            token=token,
+            userId=res["user_id"],
+            username=res["username"],
+            fullName=res["full_name"]
+        )
+    except ValueError as ve:
+        raise HTTPException(status_code=400, detail=str(ve))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Registration failed: {e}")
+    finally:
+        db.close()
+
+@app.post("/auth/login", response_model=AuthResult)
+def login_user(payload: LoginPayload):
+    db = SessionLocal()
+    try:
+        user = DatabaseService.authenticate_user(db, payload.username, payload.password)
+        if not user:
+            raise HTTPException(status_code=401, detail="Invalid username or password")
+        
+        token = SecurityService.create_jwt_token({"sub": user["user_id"], "username": user["username"]})
+        return AuthResult(
+            status="ok",
+            message="Authentication successful",
+            token=token,
+            userId=user["user_id"],
+            username=user["username"],
+            fullName=user["full_name"]
+        )
+    finally:
+        db.close()
+
 @app.get("/")
 def read_root():
     return {"message": "PMDS Parkinson AI Backend is running", "loaded_models": list(MODELS.keys())}
@@ -159,16 +220,19 @@ def health_check():
 def predict(payload: PredictPayload):
     modality_scores = {}
 
-    # Extract continuous sensor scores from payload
-    speech_risk = payload.speechScore if payload.speechScore is not None else float(payload.SpeechProblems)
-    tremor_risk = payload.tremorScore if payload.tremorScore is not None else float(payload.Tremor)
-    finger_risk = payload.fingerScore if payload.fingerScore is not None else float(payload.Bradykinesia)
-    gait_risk = payload.gaitScore if payload.gaitScore is not None else float(payload.PosturalInstability)
-    questionnaire_risk = payload.questionnaireScore if payload.questionnaireScore is not None else float(payload.UPDRS / 100.0)
+    # Extract safe continuous sensor scores and age from payload
+    user_age = float(payload.Age) if payload.Age is not None else 60.0
+    user_age = max(1.0, user_age)
+
+    speech_risk = float(payload.speechScore) if payload.speechScore is not None else float(payload.SpeechProblems or 0.0)
+    tremor_risk = float(payload.tremorScore) if payload.tremorScore is not None else float(payload.Tremor or 0.0)
+    finger_risk = float(payload.fingerScore) if payload.fingerScore is not None else float(payload.Bradykinesia or 0.0)
+    gait_risk = float(payload.gaitScore) if payload.gaitScore is not None else float(payload.PosturalInstability or 0.0)
+    questionnaire_risk = float(payload.questionnaireScore) if payload.questionnaireScore is not None else float((payload.UPDRS or 0.0) / 100.0)
 
     # 1. Questionnaire prediction
     q_dict = {
-        'Age': payload.Age,
+        'Age': user_age,
         'Gender': 1,
         'UPDRS_Score': questionnaire_risk * 50.0,
         'Tremor_Symptom': 1 if tremor_risk > 0.4 else 0,
@@ -180,7 +244,7 @@ def predict(payload: PredictPayload):
         'Family_History_PD': 0,
         'Smell_Loss_Anosmia': 0,
         'motor_symptom_count': (tremor_risk + finger_risk + gait_risk + speech_risk) * 2.0,
-        'updrs_age_ratio': (questionnaire_risk * 50.0) / max(payload.Age, 1)
+        'updrs_age_ratio': (questionnaire_risk * 50.0) / user_age
     }
     modality_scores['questionnaire'] = predict_modality('questionnaire', q_dict)
 
@@ -223,29 +287,54 @@ def predict(payload: PredictPayload):
     high_risk_count = sum(1 for r in modal_risks if r >= 0.50)
 
     if normal_count >= 3:
-        total_risk = min(0.20, float(np.mean(modal_risks)))
+        updrs_level = 0
     elif high_risk_count >= 3:
-        total_risk = max(0.78, float(np.mean(modal_risks)))
+        mean_risk = float(np.mean(modal_risks))
+        updrs_level = 4 if mean_risk >= 0.80 else 3
     else:
-        max_modal_risk = max(modal_risks)
-        weights = {'questionnaire': 0.25, 'tremor': 0.20, 'finger': 0.20, 'gait': 0.20, 'voice': 0.15}
-        weighted_risk = sum(modality_scores[m] * weights[m] for m in MODALITIES if m in modality_scores)
-        total_risk = max(max_modal_risk * 0.85, weighted_risk)
+        weighted_risk = sum(modality_scores[m] for m in MODALITIES if m in modality_scores) / len(MODALITIES)
+        if weighted_risk >= 0.80:
+            updrs_level = 4
+        elif weighted_risk >= 0.60:
+            updrs_level = 3
+        elif weighted_risk >= 0.40:
+            updrs_level = 2
+        elif weighted_risk >= 0.20:
+            updrs_level = 1
+        else:
+            updrs_level = 0
 
-    risk_percent = int(round(total_risk * 100))
-    diagnosis, label, color = get_risk_level_info(risk_percent)
+    diagnosis, label, color, description, level_int = get_risk_level_info(updrs_level)
 
     scores_array = np.array(list(modality_scores.values()))
     std_dev = np.std(scores_array) if len(scores_array) > 0 else 0
     confidence = float(np.clip(1.0 - (std_dev * 0.4), 0.78, 0.98))
 
+    # Save encrypted assessment results to secure database
+    try:
+        db = SessionLocal()
+        sensor_json_raw = str(payload.model_dump())
+        DatabaseService.save_test_result(
+            db=db,
+            user_id=payload.uid or "demo_user",
+            sensor_data_raw=sensor_json_raw,
+            risk_score=float(level_int),
+            risk_percent=level_int * 25.0,
+            diagnosis=diagnosis
+        )
+        db.close()
+    except Exception as db_err:
+        print(f"[PMDS DB Warning] Could not store encrypted test result: {db_err}")
+
     return PredictResult(
-        uid=payload.uid,
-        riskScore=round(total_risk, 4),
-        riskPercent=risk_percent,
+        uid=payload.uid or "demo_user",
+        level=level_int,
+        riskScore=float(level_int),
+        riskPercent=int(level_int * 25),
         diagnosis=diagnosis,
         label=label,
         color=color,
+        description=description,
         confidence=round(confidence, 2),
         details=modality_scores
     )

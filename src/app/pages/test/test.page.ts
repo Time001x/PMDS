@@ -5,7 +5,7 @@ import { Subject, of, EMPTY } from 'rxjs';
 import { concatMap, catchError, takeUntil } from 'rxjs/operators';
 import { DbService } from '../../services/db.service';
 import { TestConfigService } from '../../services/test-config.service';
-import { ApiService, getRiskLevel, getRiskColor } from '../../services/api.service';
+import { ApiService, getRiskLevel, getRiskColor, getRiskLevelInfo, getItemLevel } from '../../services/api.service';
 import { SpeechTestComponent } from './components/speech-test/speech-test.component';
 import { TremorTestComponent } from './components/tremor-test/tremor-test.component';
 import { FingerTapTestComponent } from './components/finger-tap-test/finger-tap-test.component';
@@ -40,9 +40,11 @@ export class TestPage implements OnInit, OnDestroy {
   historySummary: any = { count: 0, latest: 0, avg: 0 };
 
   resultRingPercent = 0;
-  resultRiskLevel = 'ปกติ';
-  resultColor = '#888';
+  resultLevelNumber = 0;
+  resultRiskLevel = 'ไม่มีอาการ';
+  resultColor = '#05C134';
   resultLabel = '';
+  resultDescription = '';
   resultScores: any[] = [];
 
   modalVisible = false;
@@ -61,6 +63,7 @@ export class TestPage implements OnInit, OnDestroy {
 
   getRiskLevel = getRiskLevel;
   getRiskColor = getRiskColor;
+  getItemLevel = getItemLevel;
 
   constructor(
     private db: DbService,
@@ -144,12 +147,15 @@ export class TestPage implements OnInit, OnDestroy {
       console.log('[PMDS] ผลจาก AI:', result);
 
       // ใช้ผลจาก AI แทนการคำนวณเอง
-      const totalRisk = result.riskPercent;
-      const riskLevel = getRiskLevel(totalRisk);
-      const riskColor = getRiskColor(totalRisk);
+      const lvlInfo = getRiskLevelInfo(result.level !== undefined ? result.level : 0);
+      const totalLevel = lvlInfo.level;
+      const riskLevel = lvlInfo.label;
+      const riskColor = lvlInfo.color;
+      const riskDesc = lvlInfo.desc;
 
       const record = {
-        riskPercent: totalRisk,
+        levelNumber: totalLevel,
+        riskPercent: totalLevel * 25,
         riskLevel: riskLevel,
         scores: { ...sessionScores },
         level: riskLevel
@@ -157,23 +163,27 @@ export class TestPage implements OnInit, OnDestroy {
       this.db.addHistory(this.currentUser.uid, record);
       this.db.clearSessionScores(this.currentUser.uid);
 
-      this.resultRingPercent = totalRisk;
+      this.resultLevelNumber = totalLevel;
+      this.resultRingPercent = totalLevel * 25;
       this.resultRiskLevel = riskLevel;
       this.resultColor = riskColor;
       this.resultLabel = riskLevel;
+      this.resultDescription = riskDesc;
 
       const tests = this.testConfig.getTestList();
-      this.resultScores = tests.map(t => ({
-        ...t,
-        score: Math.round((sessionScores[t.id] || 0) * 100),
-        color: (sessionScores[t.id] || 0) > 0.6
-          ? 'var(--accent-danger)'
-          : (sessionScores[t.id] || 0) > 0.35
-            ? 'var(--accent-warn)'
-            : 'var(--accent-good)'
-      }));
+      this.resultScores = tests.map(t => {
+        const sc = sessionScores[t.id] || 0;
+        const itemLvl = getItemLevel(sc);
+        const info = getRiskLevelInfo(itemLvl);
+        return {
+          ...t,
+          level: info.level,
+          label: info.label,
+          color: info.color
+        };
+      });
 
-      this.showToast(`🤖 AI วิเคราะห์เสร็จ: ${riskLevel} (${result.confidence * 100 | 0}% confidence)`, 'teal');
+      this.showToast(`🤖 AI ประเมินเกณฑ์ MDS-UPDRS: ระดับ ${totalLevel} (${riskLevel})`, 'teal');
 
     } catch (err: any) {
       console.error('[PMDS] API error:', err);
@@ -192,26 +202,30 @@ export class TestPage implements OnInit, OnDestroy {
   showFinalResultFallback(sessionScores: { [testId: string]: number }) {
     const tests = this.testConfig.getTestList();
     const totalRisk = this.testConfig.calculateTotalRisk(sessionScores);
-    const riskLevel = getRiskLevel(totalRisk);
-    const riskColor = getRiskColor(totalRisk);
+    const itemLvl = getItemLevel(totalRisk);
+    const lvlInfo = getRiskLevelInfo(itemLvl);
 
-    const record = { riskPercent: totalRisk, riskLevel: riskLevel, scores: { ...sessionScores }, level: riskLevel };
+    const record = { levelNumber: lvlInfo.level, riskPercent: lvlInfo.level * 25, riskLevel: lvlInfo.label, scores: { ...sessionScores }, level: lvlInfo.label };
     this.db.addHistory(this.currentUser.uid, record);
     this.db.clearSessionScores(this.currentUser.uid);
 
-    this.resultRingPercent = totalRisk;
-    this.resultRiskLevel = riskLevel;
-    this.resultColor = riskColor;
-    this.resultLabel = riskLevel;
-    this.resultScores = tests.map(t => ({
-      ...t,
-      score: Math.round((sessionScores[t.id] || 0) * 100),
-      color: (sessionScores[t.id] || 0) > 0.6
-        ? 'var(--accent-danger)'
-        : (sessionScores[t.id] || 0) > 0.35
-          ? 'var(--accent-warn)'
-          : 'var(--accent-good)'
-    }));
+    this.resultLevelNumber = lvlInfo.level;
+    this.resultRingPercent = lvlInfo.level * 25;
+    this.resultRiskLevel = lvlInfo.label;
+    this.resultColor = lvlInfo.color;
+    this.resultLabel = lvlInfo.label;
+    this.resultDescription = lvlInfo.desc;
+    this.resultScores = tests.map(t => {
+      const sc = sessionScores[t.id] || 0;
+      const subLvl = getItemLevel(sc);
+      const info = getRiskLevelInfo(subLvl);
+      return {
+        ...t,
+        level: info.level,
+        label: info.label,
+        color: info.color
+      };
+    });
   }
 
   // ── Navigation ───────────────────────────────────────────────
@@ -409,12 +423,20 @@ export class TestPage implements OnInit, OnDestroy {
     const hist = this.db.getHistory(this.currentUser.uid);
     const sorted = [...hist].reverse();
     this.historyData = sorted;
+
+    const getRecordLevel = (h: any) => {
+      if (h.levelNumber !== undefined) return h.levelNumber;
+      return getItemLevel(h.riskPercent || 0);
+    };
+
+    const levels = hist.map(h => getRecordLevel(h));
+    const latestLvl = levels.length > 0 ? levels[0] : 0;
+    const avgLvl = levels.length > 0 ? Math.round(levels.reduce((a, b) => a + b, 0) / levels.length) : 0;
+
     this.historySummary = {
       count: hist.length,
-      latest: hist.length > 0 ? hist[0].riskPercent : 0,
-      avg: hist.length > 0
-        ? Math.round(hist.reduce((s: number, h: any) => s + h.riskPercent, 0) / hist.length)
-        : 0
+      latest: latestLvl,
+      avg: avgLvl
     };
   }
 
@@ -442,17 +464,19 @@ export class TestPage implements OnInit, OnDestroy {
 
   viewHistoryDetail(h: any) {
     const tests = this.getTestListForHistory();
-    const riskLevel = getRiskLevel(h.riskPercent);
-    const riskColor = getRiskColor(h.riskPercent);
+    const riskLevel = getRiskLevel(h.riskPercent || h.levelNumber || 0);
+    const riskColor = getRiskColor(h.riskPercent || h.levelNumber || 0);
+    const lvlNum = getItemLevel(h.riskPercent || h.levelNumber || 0);
     const scoresHtml = tests.map(t => {
       const sc = h.scores?.[t.id];
-      const pct = sc !== undefined ? Math.round(sc * 100) : null;
-      const color = pct === null ? '#ccc' : pct > 60 ? '#C10508' : pct > 35 ? '#F59E0B' : '#05C134';
+      const itemLvl = sc !== undefined ? getItemLevel(sc) : null;
+      const color = itemLvl === null ? '#ccc' : itemLvl >= 3 ? '#C10508' : itemLvl >= 2 ? '#F59E0B' : '#05C134';
+      const label = itemLvl !== undefined && itemLvl !== null ? getRiskLevel(itemLvl) : '-';
       return `<div class="hdetail-score-row">
         <span class="hdsr-icon">${t.icon}</span>
         <span class="hdsr-name">${t.name}</span>
-        <div class="hdsr-bar"><div class="hdsr-bar-fill" style="width:${pct||0}%;background:${color}"></div></div>
-        <span class="hdsr-val" style="color:${color}">${pct !== null ? pct + '%' : '-'}</span>
+        <div class="hdsr-bar"><div class="hdsr-bar-fill" style="width:${itemLvl !== null ? itemLvl * 25 : 0}%;background:${color}"></div></div>
+        <span class="hdsr-val" style="color:${color}">${itemLvl !== null ? 'ระดับ ' + itemLvl + ' (' + label + ')' : '-'}</span>
       </div>`;
     }).join('');
 
@@ -462,7 +486,7 @@ export class TestPage implements OnInit, OnDestroy {
         <p style="font-size:13px;color:#666;margin-bottom:16px">📅 ${h.date}</p>
         <div class="hdetail-total" style="border-color:${riskColor}">
           <div class="hdetail-total-val" style="color:${riskColor}">${riskLevel}</div>
-          <div class="hdetail-total-label">${h.riskPercent}%</div>
+          <div class="hdetail-total-label">ระดับ ${lvlNum} (MDS-UPDRS)</div>
         </div>
         <div class="hdetail-scores">${scoresHtml}</div>
         <button class="btn btn-primary btn-full mt-16" data-action="close-modal">ปิด</button>
