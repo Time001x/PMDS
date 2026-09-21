@@ -58,10 +58,8 @@ MODALITIES = ["finger", "gait", "questionnaire", "tremor", "voice"]
 def load_models():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     for modality in MODALITIES:
-        # Check exports folder first, then assets/models
+        # Load models directly from exports folder
         model_path = os.path.join(base_dir, "exports", modality, f"{modality}_model.joblib")
-        if not os.path.exists(model_path):
-            model_path = os.path.join(base_dir, "src", "assets", "models", modality, f"{modality}_model.joblib")
         
         if os.path.exists(model_path):
             try:

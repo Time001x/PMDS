@@ -65,6 +65,12 @@ yarn-error.log
 testem.log
 /typings
 
+# Python & ML artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+catboost_info/
+
 # System files
 .DS_Store
 Thumbs.db
