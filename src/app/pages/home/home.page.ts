@@ -75,7 +75,7 @@ export class HomePage implements OnInit {
     this.testBars = tests.map(t => {
       const sc = this.lastResult?.scores?.[t.id];
       const pct = sc !== undefined ? Math.round(sc * 100) : 0;
-      const color = pct > 60 ? '#C10508' : pct > 35 ? '#F59E0B' : '#05C134';
+      const color = pct >= 50 ? '#C10508' : '#05C134';
       const riskLabel = getRiskLevel(pct);
       return { ...t, pct, riskLabel, color };
     });
@@ -88,7 +88,7 @@ export class HomePage implements OnInit {
         riskLevel: getRiskLevel(h.riskPercent),
         isRisk,
         badgeClass: isRisk ? 'badge-risk' : 'badge-normal',
-        badgeText: isRisk ? 'เสี่ยง' : 'ปกติ'
+        badgeText: isRisk ? 'เสี่ยง' : 'ไม่เสี่ยง'
       };
     });
   }

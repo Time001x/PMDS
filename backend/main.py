@@ -112,26 +112,23 @@ class PredictPayload(BaseModel):
 
 class PredictResult(BaseModel):
     uid: Optional[str] = "demo_user"
-    level: int = 0  # 0, 1, 2, 3, 4 MDS-UPDRS Scale
+    level: int = 0  # 0 = ไม่เสี่ยง, 1 = เสี่ยง
     riskScore: Optional[float] = 0.0
     riskPercent: Optional[int] = 0
-    diagnosis: str = "ไม่มีอาการ"
-    label: str = "ไม่มีอาการ"
+    diagnosis: str = "ไม่เสี่ยง"
+    label: str = "ไม่เสี่ยง"
     color: str = "#05C134"
     description: Optional[str] = ""
     confidence: float = 0.95
     details: Optional[Dict[str, float]] = None
 
 MDS_UPDRS_SCALE = {
-    0: {"english": "Normal", "label": "ไม่มีอาการ", "color": "#05C134", "description": "ปกติ สมบูรณ์ ไม่มีอาการแสดงของโรคพาร์กินสัน"},
-    1: {"english": "Slight", "label": "เล็กน้อย", "color": "#10B981", "description": "มีความผิดปกติเพียงเล็กน้อย ไม่กระทบต่อการดำเนินชีวิต"},
-    2: {"english": "Mild", "label": "เสี่ยงปานกลาง", "color": "#F59E0B", "description": "มีอาการชัดเจนขึ้น เริ่มส่งผลกระทบต่อบางกิจกรรม"},
-    3: {"english": "Moderate", "label": "เสี่ยงมาก", "color": "#F97316", "description": "มีอาการชัดเจน รบกวนการทำกิจกรรมประจำวันอย่างมาก"},
-    4: {"english": "Severe", "label": "อาการรุนแรง", "color": "#C10508", "description": "มีอาการรุนแรงมาก ไม่สามารถพึ่งพาตนเองได้"}
+    0: {"english": "Normal", "label": "ไม่เสี่ยง", "color": "#05C134", "description": "ปกติ สมบูรณ์ ไม่มีความเสี่ยงของโรคพาร์กินสัน"},
+    1: {"english": "At Risk", "label": "เสี่ยง", "color": "#C10508", "description": "มีความเสี่ยงต่อภาวะโรคพาร์กินสัน ควรปรึกษาแพทย์ผู้เชี่ยวชาญ"}
 }
 
 def get_risk_level_info(level: int):
-    level_int = max(0, min(4, int(round(level))))
+    level_int = max(0, min(1, int(round(level))))
     info = MDS_UPDRS_SCALE[level_int]
     return info["label"], info["label"], info["color"], info["description"], level_int
 
@@ -293,17 +290,10 @@ def predict(payload: PredictPayload):
     if normal_count >= 3:
         updrs_level = 0
     elif high_risk_count >= 3:
-        mean_risk = float(np.mean(modal_risks))
-        updrs_level = 4 if mean_risk >= 0.80 else 3
+        updrs_level = 1
     else:
         weighted_risk = sum(modality_scores[m] for m in MODALITIES if m in modality_scores) / len(MODALITIES)
-        if weighted_risk >= 0.80:
-            updrs_level = 4
-        elif weighted_risk >= 0.60:
-            updrs_level = 3
-        elif weighted_risk >= 0.40:
-            updrs_level = 2
-        elif weighted_risk >= 0.20:
+        if weighted_risk >= 0.50:
             updrs_level = 1
         else:
             updrs_level = 0

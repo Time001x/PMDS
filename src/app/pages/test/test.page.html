@@ -67,22 +67,6 @@
           <p class="text-center text-muted small" *ngIf="!allTestsDone">ทดสอบครบ 5 มิติเพื่อดูผลรวม</p>
         </div>
 
-        <!-- FILE UPLOAD DATASET ANALYSIS SECTION -->
-        <div class="mt-20 p-16" style="background:#fff; border-radius:16px; border:1px solid #3b82f6; box-shadow: 0 4px 14px rgba(59,130,246,0.12); position:relative;">
-          <div style="display:flex; align-items:center; justify-content:space-between;" class="mb-8">
-            <div style="font-size: 15px; font-weight:700; color:#1d4ed8;">📂 อัปโหลดไฟล์ชุดข้อมูล (Dataset File)</div>
-            <span class="badge" style="background:#dbeafe; color:#1e40af; border:none; font-size:11px; padding:3px 8px;">CSV / DATA</span>
-          </div>
-          <p class="text-muted small mb-12">เลือกไฟล์ชุดข้อมูล (.csv, .data, .txt) จากมือถือของคุณเพื่อส่งเข้าวิเคราะห์ผ่านระบบ AI</p>
-
-          <!-- Direct Native File Label Button -->
-          <label class="btn btn-primary btn-full btn-large" style="background:#2563eb; border:none; box-shadow:0 4px 12px rgba(37,99,235,0.3); position:relative; display:flex; align-items:center; justify-content:center; cursor:pointer; overflow:hidden;">
-            <input type="file" accept=".csv,.data,.txt,*/*" style="position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; z-index:10; cursor:pointer;" (change)="onFileSelected($event)">
-            <span *ngIf="!isProcessingFile" style="pointer-events:none; font-weight:700;">📁 เลือกไฟล์จากโทรศัพท์มือถือ</span>
-            <span *ngIf="isProcessingFile" style="pointer-events:none; font-weight:700;">⏳ กำลังส่งวิเคราะห์ผ่าน AI...</span>
-          </label>
-        </div>
-
         <div style="height:20px"></div>
       </ng-container>
 
@@ -132,7 +116,7 @@
               <div class="hs-label">ครั้งที่ทดสอบ</div>
             </div>
             <div class="hs-item">
-              <div class="hs-icon" [class]="historySummary.latest >= 2 ? '⚠️' : '✅'">{{ historySummary.latest >= 2 ? '⚠️' : '✅' }}</div>
+              <div class="hs-icon" [class]="historySummary.latest >= 1 ? '⚠️' : '✅'">{{ historySummary.latest >= 1 ? '⚠️' : '✅' }}</div>
               <div class="hs-val" [style.color]="getRiskColor(historySummary.latest)">{{ getRiskLevel(historySummary.latest) }}</div>
               <div class="hs-label">ล่าสุด</div>
             </div>
@@ -161,7 +145,7 @@
                 <div class="hc-test-item" *ngFor="let test of getTestList()">
                   <span class="hc-test-name">{{ test.icon }} {{ test.name }}</span>
                   <div class="hc-test-bar-bg">
-                    <div class="hc-test-bar" [style.width.%]="getItemLevel(h.scores[test.id] || 0) * 25" [style.background]="getRiskColor(h.scores[test.id] || 0)"></div>
+                    <div class="hc-test-bar" [style.width.%]="getItemLevel(h.scores[test.id] || 0) * 100" [style.background]="getRiskColor(h.scores[test.id] || 0)"></div>
                   </div>
                   <span class="hc-test-score" [style.color]="getRiskColor(h.scores[test.id] || 0)">{{ h.scores[test.id] !== undefined ? getRiskLevel(h.scores[test.id]) : '-' }}</span>
                 </div>
@@ -183,7 +167,7 @@
             </svg>
             <div class="result-ring-val">
               <div class="result-percent" [style.color]="resultColor">{{ resultLevelNumber }}</div>
-              <div class="result-label">ระดับ (0-4)</div>
+              <div class="result-label">ระดับ (0-1)</div>
             </div>
           </div>
           <div class="result-title" [style.color]="resultColor">{{ resultRiskLevel }}</div>
@@ -196,7 +180,7 @@
             <div class="breakdown-icon">{{ s.icon }}</div>
             <div class="breakdown-info">
               <div class="breakdown-name">{{ s.name }}</div>
-              <div class="risk-bar-track" style="margin-top:6px"><div class="risk-bar-fill" [style.width.%]="s.level * 25" [style.background]="s.color"></div></div>
+              <div class="risk-bar-track" style="margin-top:6px"><div class="risk-bar-fill" [style.width.%]="s.level * 100" [style.background]="s.color"></div></div>
             </div>
             <div class="breakdown-score" [style.color]="s.color">ระดับ {{ s.level }} ({{ s.label }})</div>
           </div>
@@ -204,7 +188,7 @@
 
         <div class="result-note">
           <strong>⚠️ คำเตือนสำคัญ:</strong> ผลการประเมินนี้เป็น<strong>เพียงการคัดกรองเบื้องต้น</strong>ตามมาตรฐาน MDS-UPDRS เท่านั้น
-          <ng-container *ngIf="resultLevelNumber >= 2"><br><br><strong>💡 แนะนำ:</strong> ควรพบแพทย์ผู้เชี่ยวชาญด้านระบบประสาทเพื่อรับการตรวจวินิจฉัยอย่างละเอียด</ng-container>
+          <ng-container *ngIf="resultLevelNumber >= 1"><br><br><strong>💡 แนะนำ:</strong> ควรพบแพทย์ผู้เชี่ยวชาญด้านระบบประสาทเพื่อรับการตรวจวินิจฉัยอย่างละเอียด</ng-container>
         </div>
 
         <div class="result-actions">

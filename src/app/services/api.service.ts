@@ -44,17 +44,14 @@ export interface PredictResult {
   confidence: number;
 }
 
-export type RiskLevel = 'ไม่มีอาการ' | 'เล็กน้อย' | 'เสี่ยงปานกลาง' | 'เสี่ยงมาก' | 'อาการรุนแรง';
+export type RiskLevel = 'ไม่เสี่ยง' | 'เสี่ยง';
 
 export function getRiskLevelInfo(level: number) {
-  const lvl = Math.max(0, Math.min(4, Math.round(level)));
+  const lvl = Math.max(0, Math.min(1, Math.round(level)));
   switch (lvl) {
-    case 0: return { level: 0, label: 'ไม่มีอาการ', color: '#05C134', desc: 'ปกติ สมบูรณ์ ไม่มีอาการแสดงของโรคพาร์กินสัน' };
-    case 1: return { level: 1, label: 'เล็กน้อย', color: '#10B981', desc: 'มีความผิดปกติเพียงเล็กน้อย ไม่กระทบต่อการดำเนินชีวิต' };
-    case 2: return { level: 2, label: 'เสี่ยงปานกลาง', color: '#F59E0B', desc: 'มีอาการชัดเจนขึ้น เริ่มส่งผลกระทบต่อบางกิจกรรม' };
-    case 3: return { level: 3, label: 'เสี่ยงมาก', color: '#F97316', desc: 'มีอาการชัดเจน รบกวนการทำกิจกรรมประจำวันอย่างมาก' };
-    case 4: return { level: 4, label: 'อาการรุนแรง', color: '#C10508', desc: 'มีอาการรุนแรงมาก ไม่สามารถพึ่งพาตนเองได้' };
-    default: return { level: 0, label: 'ไม่มีอาการ', color: '#05C134', desc: 'ปกติ สมบูรณ์ ไม่มีอาการแสดงของโรคพาร์กินสัน' };
+    case 0: return { level: 0, label: 'ไม่เสี่ยง', color: '#05C134', desc: 'ปกติ สมบูรณ์ ไม่มีความเสี่ยงของโรคพาร์กินสัน' };
+    case 1: return { level: 1, label: 'เสี่ยง', color: '#C10508', desc: 'มีความเสี่ยงต่อภาวะโรคพาร์กินสัน ควรปรึกษาแพทย์ผู้เชี่ยวชาญ' };
+    default: return { level: 0, label: 'ไม่เสี่ยง', color: '#05C134', desc: 'ปกติ สมบูรณ์ ไม่มีความเสี่ยงของโรคพาร์กินสัน' };
   }
 }
 
@@ -62,14 +59,14 @@ export function getItemLevel(score: number): number {
   if (score <= 0) return 0;
   if (score > 4) {
     // If percentage (0 - 100)
-    return score >= 80 ? 4 : score >= 60 ? 3 : score >= 40 ? 2 : score >= 20 ? 1 : 0;
+    return score >= 50 ? 1 : 0;
   }
-  if (score > 1.0) {
-    // If integer 2, 3, 4
-    return Math.min(4, Math.round(score));
+  if (score >= 1.0) {
+    // If integer level >= 1
+    return 1;
   }
   // If float ratio (0.0 to 1.0) e.g. questionnaire or sensor risk ratio
-  return score >= 0.80 ? 4 : score >= 0.60 ? 3 : score >= 0.40 ? 2 : score >= 0.20 ? 1 : 0;
+  return score >= 0.50 ? 1 : 0;
 }
 
 export function getRiskLevel(scoreOrPercent: number): string {

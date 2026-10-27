@@ -41,7 +41,7 @@ export class TestPage implements OnInit, OnDestroy {
 
   resultRingPercent = 0;
   resultLevelNumber = 0;
-  resultRiskLevel = 'ไม่มีอาการ';
+  resultRiskLevel = 'ไม่เสี่ยง';
   resultColor = '#05C134';
   resultLabel = '';
   resultDescription = '';
@@ -155,7 +155,7 @@ export class TestPage implements OnInit, OnDestroy {
 
       const record = {
         levelNumber: totalLevel,
-        riskPercent: totalLevel * 25,
+        riskPercent: totalLevel * 100,
         riskLevel: riskLevel,
         scores: { ...sessionScores },
         level: riskLevel
@@ -164,7 +164,7 @@ export class TestPage implements OnInit, OnDestroy {
       this.db.clearSessionScores(this.currentUser.uid);
 
       this.resultLevelNumber = totalLevel;
-      this.resultRingPercent = totalLevel * 25;
+      this.resultRingPercent = totalLevel * 100;
       this.resultRiskLevel = riskLevel;
       this.resultColor = riskColor;
       this.resultLabel = riskLevel;
@@ -183,7 +183,7 @@ export class TestPage implements OnInit, OnDestroy {
         };
       });
 
-      this.showToast(`🤖 AI ประเมินเกณฑ์ MDS-UPDRS: ระดับ ${totalLevel} (${riskLevel})`, 'teal');
+      this.showToast(`🤖 AI ประเมิน: ระดับ ${totalLevel} (${riskLevel})`, 'teal');
 
     } catch (err: any) {
       console.error('[PMDS] API error:', err);
@@ -205,12 +205,12 @@ export class TestPage implements OnInit, OnDestroy {
     const itemLvl = getItemLevel(totalRisk);
     const lvlInfo = getRiskLevelInfo(itemLvl);
 
-    const record = { levelNumber: lvlInfo.level, riskPercent: lvlInfo.level * 25, riskLevel: lvlInfo.label, scores: { ...sessionScores }, level: lvlInfo.label };
+    const record = { levelNumber: lvlInfo.level, riskPercent: lvlInfo.level * 100, riskLevel: lvlInfo.label, scores: { ...sessionScores }, level: lvlInfo.label };
     this.db.addHistory(this.currentUser.uid, record);
     this.db.clearSessionScores(this.currentUser.uid);
 
     this.resultLevelNumber = lvlInfo.level;
-    this.resultRingPercent = lvlInfo.level * 25;
+    this.resultRingPercent = lvlInfo.level * 100;
     this.resultRiskLevel = lvlInfo.label;
     this.resultColor = lvlInfo.color;
     this.resultLabel = lvlInfo.label;
@@ -252,125 +252,6 @@ export class TestPage implements OnInit, OnDestroy {
     this.toastVisible = true;
     clearTimeout(this.toastTimeout);
     this.toastTimeout = setTimeout(() => this.toastVisible = false, 3000);
-  }
-
-  // ── CSV File Upload & Dataset Analysis Mode ───────────────────
-  selectedFileName = '';
-  isProcessingFile = false;
-  datasetSummary: any = null;
-
-  triggerFileInput(fileInput: HTMLInputElement) {
-    fileInput.click();
-  }
-
-  async onFileSelected(event: any) {
-    const file = event.target?.files?.[0];
-    if (!file) return;
-
-    this.ngZone.run(() => {
-      this.selectedFileName = file.name;
-      this.isProcessingFile = true;
-      this.showToast(`📁 กำลังอ่านและส่งไฟล์วิเคราะห์ AI: ${file.name}...`, 'teal');
-    });
-
-    const reader = new FileReader();
-    reader.onload = (e: any) => {
-      this.ngZone.run(() => {
-        try {
-          const text = e.target.result || '';
-          const lines = text.split(/\r?\n/).map((l: string) => l.trim()).filter((l: string) => l.length > 0);
-
-          if (lines.length < 2) {
-            this.showToast('⚠️ ไฟล์ไม่มีข้อมูลหรือมีขนาดเล็กเกินไป', 'warn');
-            this.isProcessingFile = false;
-            return;
-          }
-
-          const delimiter = lines[0].includes(',') ? ',' : (lines[0].includes('\t') ? '\t' : /\s+/);
-          const headers = lines[0].split(delimiter).map((h: string) => h.trim().replace(/^"|"$/g, ''));
-          const rows = lines.slice(1);
-
-          let validCount = 0;
-          let sumSpeech = 0;
-          let sumTremor = 0;
-          let sumFinger = 0;
-          let sumGait = 0;
-          let sumQ = 0;
-
-          const speechColIdx = headers.findIndex((h: string) => 
-            ['speechscore', 'speechproblems', 'mdvp:jitter(%)'].includes(h.toLowerCase())
-          );
-          const tremorColIdx = headers.findIndex((h: string) => 
-            ['tremorscore', 'tremor', 'doctor_diagnosis_0_5'].includes(h.toLowerCase())
-          );
-          const fingerColIdx = headers.findIndex((h: string) => 
-            ['fingerscore', 'bradykinesia'].includes(h.toLowerCase())
-          );
-          const gaitColIdx = headers.findIndex((h: string) => 
-            ['gaitscore', 'posturalinstability'].includes(h.toLowerCase())
-          );
-          const qColIdx = headers.findIndex((h: string) => 
-            ['questionnairescore', 'updrs'].includes(h.toLowerCase())
-          );
-
-          for (const line of rows) {
-            const vals = line.split(delimiter).map((v: string) => v.trim().replace(/^"|"$/g, ''));
-            if (vals.length < Math.max(1, headers.length * 0.3)) continue;
-
-            validCount++;
-
-            const speech = speechColIdx >= 0 ? parseFloat(vals[speechColIdx]) || 0 : 0;
-            let tremor = tremorColIdx >= 0 ? parseFloat(vals[tremorColIdx]) || 0 : 0;
-            const finger = fingerColIdx >= 0 ? parseFloat(vals[fingerColIdx]) || 0 : 0;
-            const gait = gaitColIdx >= 0 ? parseFloat(vals[gaitColIdx]) || 0 : 0;
-            const q = qColIdx >= 0 ? parseFloat(vals[qColIdx]) || 0 : 0;
-
-            let normSpeech = speech;
-            if (speechColIdx >= 0) {
-              const colName = headers[speechColIdx].toLowerCase();
-              if (colName.includes('jitter') && speech < 0.1) {
-                normSpeech = speech * 40.0;
-              }
-            }
-
-            if (tremor > 1.0) {
-              tremor = tremor / 4.0; // Scale 0-4 diagnosis to 0-1
-            }
-
-            sumSpeech += normSpeech;
-            sumTremor += tremor;
-            sumFinger += finger;
-            sumGait += gait;
-            sumQ += q;
-          }
-
-          if (validCount === 0) {
-            this.showToast('⚠️ ไม่พบแถวข้อมูลที่สมบูรณ์ในไฟล์', 'warn');
-            this.isProcessingFile = false;
-            return;
-          }
-
-          const datasetSessionScores: { [testId: string]: number } = {
-            speech: parseFloat((sumSpeech / validCount).toFixed(4)),
-            tremor: parseFloat((sumTremor / validCount).toFixed(4)),
-            finger: parseFloat((sumFinger / validCount).toFixed(4)),
-            gait: parseFloat((sumGait / validCount).toFixed(4)),
-            questionnaire: parseFloat((sumQ / validCount).toFixed(4))
-          };
-
-          this.showToast(`🤖 สกัดข้อมูลจากไฟล์ ${file.name} ส่งวิเคราะห์ AI...`, 'teal');
-          this.analyzeWithAI(datasetSessionScores);
-
-        } catch (err: any) {
-          console.error('[PMDS] File processing error:', err);
-          this.showToast('⚠️ เกิดข้อผิดพลาดในการวิเคราะห์ไฟล์', 'warn');
-        } finally {
-          this.isProcessingFile = false;
-        }
-      });
-    };
-
-    reader.readAsText(file);
   }
 
   // ── Test Menu ─────────────────────────────────────────────────
@@ -470,12 +351,12 @@ export class TestPage implements OnInit, OnDestroy {
     const scoresHtml = tests.map(t => {
       const sc = h.scores?.[t.id];
       const itemLvl = sc !== undefined ? getItemLevel(sc) : null;
-      const color = itemLvl === null ? '#ccc' : itemLvl >= 3 ? '#C10508' : itemLvl >= 2 ? '#F59E0B' : '#05C134';
+      const color = itemLvl === null ? '#ccc' : itemLvl >= 1 ? '#C10508' : '#05C134';
       const label = itemLvl !== undefined && itemLvl !== null ? getRiskLevel(itemLvl) : '-';
       return `<div class="hdetail-score-row">
         <span class="hdsr-icon">${t.icon}</span>
         <span class="hdsr-name">${t.name}</span>
-        <div class="hdsr-bar"><div class="hdsr-bar-fill" style="width:${itemLvl !== null ? itemLvl * 25 : 0}%;background:${color}"></div></div>
+        <div class="hdsr-bar"><div class="hdsr-bar-fill" style="width:${itemLvl !== null ? itemLvl * 100 : 0}%;background:${color}"></div></div>
         <span class="hdsr-val" style="color:${color}">${itemLvl !== null ? 'ระดับ ' + itemLvl + ' (' + label + ')' : '-'}</span>
       </div>`;
     }).join('');
